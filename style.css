@@ -1,0 +1,122 @@
+/* Global styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+    background: #111;
+    border-bottom: 1px solid #222;
+}
+
+h1, h2 {
+    color: #adef8b;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+/* sidebar for question navigation */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background: #111;
+    border-right: 1px solid #222;
+    padding-top: 60px; /* account for header if needed */
+    box-sizing: border-box;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 5px 0;
+}
+
+.sidebar a {
+    color: #adef8b;
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+    transition: background 0.2s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: rgba(0,255,0,0.1);
+}
+
+.content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+
+.card {
+    display: inline-block;
+    text-decoration: none;
+    background: linear-gradient(135deg, #000 80%, rgba(0,255,0,0.2) 100%);
+    border: 1px solid rgba(0,255,0,0.2);
+    border-radius: 8px;
+    padding: 20px 30px;
+    min-width: 200px;
+    text-align: center;
+    color: #adef8b;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,255,0,0.3);
+    border-color: rgba(0,255,0,0.5);
+}
+
+button,
+a.button {
+    display: inline-block;
+    text-decoration: none;
+    background: linear-gradient(135deg, #000 60%, rgba(0,255,0,0.4) 100%);
+    border: 1px solid rgba(0,255,0,0.2);
+    color: #adef8b;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+button:hover,
+a.button:hover {
+    background: linear-gradient(135deg, #000 50%, rgba(0,255,0,0.6) 100%);
+    border-color: rgba(0,255,0,0.5);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #777;
+    border-top: 1px solid #222;
+    background: #111;
+    margin-top: auto;
+}

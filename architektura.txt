@@ -1,0 +1,145 @@
+Internetová reklama, spam a obchodování na internetu
+1. Úvod do tématu
+Internet je dnes klíčovým prostředím pro komunikaci, reklamu i nakupování. Firmy zde propagují své produkty, komunikují se zákazníky a provozují e-shopy. Internetová reklama je oblíbená díky nízkým nákladům, přesnému cílení a snadné měřitelnosti výsledků 
+
+Součástí tématu je také spam, tedy nevyžádané zprávy, které mohou být nejen obtěžující, ale i nebezpečné (phishing, malware).
+
+2.Internetová reklama
+2.1 Co je internetová reklama
+Internetová reklama je propagace probíhající na webových stránkách, sociálních sítích nebo v mobilních aplikacích.
+
+Výhody:
+přesné cílení (věk, pohlaví, lokalita, zájmy)
+měřitelnost výsledků – vidíme, kolik lidí kliklo a nakoupilo
+nízké náklady
+rychlý start kampaně 
+Nevýhody:
+příliš mnoho reklam → lidé používají AdBlock
+riziko zneužití osobních údajů, cookies, sledování
+2.2 Hlavní formy reklamy
+Bannerová reklama
+Obrázky umístěné na stránkách.
+
+PPC reklama (Pay-Per-Click)
+Inzerent platí jen za kliknutí (Google Ads, Sklik).
+Výhoda: rychlé výsledky.
+Nevýhoda: může být drahá při vysoké konkurenci.
+
+Reklama na sociálních sítích
+Facebook, Instagram, TikTok, YouTube.
+Cílí podle zájmů, chování uživatele.
+
+Videoreklamy
+Krátké spoty před videi, reklamy na sociálních sítích.
+
+Influencer marketing
+Produkty doporučují známé osobnosti.
+
+E-mail marketing
+Newslettery pro uživatele, kteří se přihlásili k odběru.
+Pozor – nevyžádané e-maily = spam.
+
+Remarketing / retargeting
+Reklama zobrazovaná lidem, kteří už navštívili web.
+
+2.3 Důležité pojmy (slovníček)
+SEO – optimalizace webu pro vyhledávače (neplacené výsledky).
+SEM – placené reklamy ve vyhledávačích.
+Konverze – požadovaná akce (nákup, registrace).
+CTR – míra prokliku reklamy (%).
+Cookies – malé soubory v prohlížeči umožňující cílení reklamy.
+3. SPAM a kyberbezpečnost
+3.1 Co je spam
+Spam = nevyžádaná elektronická zpráva, nejčastěji e-mail.
+Může obsahovat:
+
+reklamní sdělení
+phishing
+podvody
+malware
+hoaxy (řetězové zprávy) 
+Proč spam vzniká?
+Je levný, anonymní a účinný u nezkušených uživatelů.
+
+3.2 Phishing
+Phishing je podvodné získávání údajů pomocí falešných e-mailů nebo webů.
+Příklad:
+
+e-mail „Vaše banka potřebuje ověřit účet“
+uživatel klikne na falešný odkaz a vyplní údaje
+3.3 Obrana proti spamu
+spam filtry
+neklikat na neznámé odkazy
+neotvírat neověřené přílohy
+používat 2FA
+nikdy nevyplňovat údaje na podezřelých stránkách 
+4. Antispamový zákon (Zákon o některých službách informační společnosti – 480/2004 Sb.)
+
+Antispamový zákon upravuje pravidla pro šíření obchodních sdělení (reklamních e-mailů) v ČR.
+
+Hlavní zásady zákona:
+1. Zákaz šíření nevyžádaných obchodních sdělení
+Reklamní e-maily smějí být posílány jen s předchozím souhlasem příjemce (tzv. opt-in).
+
+2. Povinné náležitosti obchodního sdělení
+Každý e-mail musí obsahovat:
+
+jasné označení, že jde o obchodní sdělení
+identifikaci odesílatele
+možnost jednoduchého odhlášení (unsubscribe)
+3. Výjimka – zákazník
+Pokud si zákazník koupil produkt nebo službu, může mu firma posílat související nabídky bez nového souhlasu – ale vždy musí být možnost odhlásit se.
+
+4. Sankce
+Za porušení zákona může ÚOOÚ uložit pokutu (běžně až statisíce korun).
+
+Pro maturitu je důležité vědět:
+✔ nevyžádané e-maily jsou zákonem zakázané
+✔ reklama musí mít souhlas příjemce
+✔ každý newsletter musí obsahovat unsubscribe
+✔ dohled vykonává ÚOOÚ
+
+5. Obchodování na internetu (e-commerce)
+5.1 Co je e-commerce
+Nákup zboží a služeb přes internet.
+Příklady:
+
+e-shopy (Alza, Datart)
+marketplace (Amazon, Allegro)
+digitální služby (Netflix, Steam)
+dropshipping 
+5.2 Výhody online nakupování
+dostupnost 24/7
+široká nabídka
+možnost porovnání cen
+rychlé doručení
+5.3 Nevýhody a rizika
+riziko podvodných e-shopů
+nemožnost produkt vyzkoušet
+riziko zneužití platebních údajů
+možné komplikace s vracením zboží
+5.4 Jak poznat podvodný e-shop
+příliš nízké ceny
+chybějící kontaktní údaje
+žádné nebo podezřelé recenze
+doména existuje krátce
+pouze platba předem
+mnoho chyb v textu, amatérský vzhled stránky 
+6. Shrnutí
+Internetová reklama
+přesně cílená, levná, měřitelná
+formy: bannery, PPC, sociální sítě, video, e-mail marketing, remarketing
+Spam a bezpečnost
+spam = nevyžádané zprávy
+nebezpečí → phishing, malware
+obrana: filtry, opatrnost, 2FA
+Antispamový zákon
+zakazuje šíření nevyžádaných e-mailů
+obchodní sdělení jen se souhlasem
+povinné prvky e-mailu
+možnost odhlášení
+E-commerce
+výhody: pohodlí, ceny, dostupnost
+rizika: podvody, zneužití údajů
+kontrola e-shopu před nákupem
+

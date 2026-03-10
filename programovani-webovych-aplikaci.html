@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programování webových aplikací</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Programování webových aplikací</h1>
+    </header>
+    <div class="sidebar">
+        <a href="index.html" class="button" style="margin: 10px; display:block; text-align:center;">Hlavní stránka</a>
+        <ul>
+            <li><a href="#" data-question="q1" class="active">1 – Definice pojmů</a></li>
+            <li><a href="#" data-question="q2">2 – Základní syntaxe</a></li>
+            <li><a href="#" data-question="q3">3 – Webové stránky a layouty</a></li>
+            <li><a href="#" data-question="q4">4 – HTML a CSS</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <section id="q1" class="question">
+    <h2>Otázka 16 – Definice pojmů z oblasti webu</h2>
+
+    <h3>1. WWW (World Wide Web)</h3>
+    <p>World Wide Web (WWW) je služba internetu, která umožňuje zobrazování a propojování hypertextových dokumentů – tzv. webových stránek. Tyto stránky mohou obsahovat text, multimédia a interaktivní prvky.</p>
+    
+    <p><strong>Důležité upozornění:</strong> WWW není totéž co internet. Internet je celosvětová hardwarová síť (infrastruktura), zatímco WWW je pouze jedna z mnoha služeb, které na této síti běží (podobně jako e-mail nebo FTP).</p>
+
+    <h4>Jak WWW funguje (Model Klient–Server)</h4>
+    
+    <ul>
+        <li><strong>Klient (Prohlížeč):</strong> Uživatel zadá adresu, prohlížeč vytvoří požadavek (request) přes protokol HTTP/HTTPS.</li>
+        <li><strong>Server:</strong> Webový server požadavek zpracuje a pošle zpět odpověď (response) — obvykle soubory HTML, CSS a JS.</li>
+        <li><strong>Vykreslení:</strong> Prohlížeč tyto soubory interpretuje a zobrazí výslednou stránku.</li>
+    </ul>
+
+    <h4>URL — adresa webové stránky</h4>
+    <p>Každý zdroj na webu má svou unikátní adresu URL (Uniform Resource Locator).</p>
+    
+    <p><code>https://www.example.com/sekce/stranka.html</code></p>
+    <ul>
+        <li><strong>https://</strong> – Protokol (zabezpečený).</li>
+        <li><strong>www.example.com</strong> – Doména (adresa serveru).</li>
+        <li><strong>/sekce/stranka.html</strong> – Cesta k souboru na serveru.</li>
+    </ul>
+
+    <h3>2. HTML (HyperText Markup Language)</h3>
+    <p>HTML je standardizovaný <strong>značkovací jazyk</strong> (nikoliv programovací). Definuje strukturu a sémantiku webového dokumentu pomocí tzv. tagů (značek).</p>
+    
+    
+    
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="cs"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Název stránky&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Nadpis stránky&lt;/h1&gt;
+    &lt;p&gt;Toto je odstavec textu.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <h3>3. XHTML (Extensible HyperText Markup Language)</h3>
+    <p>XHTML je přísnější verze HTML založená na XML. Vyžaduje absolutní čistotu kódu, což mělo zajistit lepší strojové zpracování dat.</p>
+    <ul>
+        <li><strong>Pravidla:</strong> Všechny tagy musí být uzavřené (např. <code>&lt;br /&gt;</code>), psané malými písmeny a atributy musí být vždy v uvozovkách.</li>
+        <li><strong>Současnost:</strong> Dnes je XHTML vytlačeno <strong>HTML5</strong>, které je flexibilnější a obsahuje moderní prvky pro video, audio a interaktivitu.</li>
+    </ul>
+
+    <h3>4. Domény a DNS</h3>
+    <p>Doména je lidsky čitelný název pro IP adresu serveru. Abychom si nemuseli pamatovat čísla jako <code>142.250.184.206</code>, píšeme <code>google.com</code>.</p>
+    
+    <h4>Struktura domény</h4>
+    <p><code>subdoména.doména2řádu.TLD</code> (např. <code>blog.seznam.cz</code>)</p>
+
+    <h4>DNS (Domain Name System)</h4>
+    
+    <p>DNS funguje jako „telefonní seznam internetu“. Když zadáte doménu, prohlížeč se zeptá DNS serveru na odpovídající číselnou IP adresu, aby věděl, ke kterému počítači se má připojit.</p>
+
+    <h3>5. TLD — domény nejvyšší úrovně</h3>
+    <p>TLD (Top Level Domain) je koncovka domény, která určuje její příslušnost nebo účel.</p>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Typ TLD</th>
+                <th>Příklad</th>
+                <th>Význam</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>ccTLD</strong> (národní)</td>
+                <td>.cz, .sk, .de</td>
+                <td>Přiřazeny konkrétním státům.</td>
+            </tr>
+            <tr>
+                <td><strong>gTLD</strong> (generické)</td>
+                <td>.com, .org, .net</td>
+                <td>Původně pro komerční či neziskové org.</td>
+            </tr>
+            <tr>
+                <td><strong>new gTLD</strong> (moderní)</td>
+                <td>.shop, .app, .blog</td>
+                <td>Tématické domény pro lepší identifikaci.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Závěr: Otázky k procvičení</h3>
+    <ul>
+        <li>Dokážete vysvětlit rozdíl mezi <strong>statickým</strong> a <strong>dynamickým</strong> webem?</li>
+        <li>Proč je dnes protokol <strong>HTTPS</strong> naprostým standardem oproti starému HTTP?</li>
+        <li>Co se stane, když zadám adresu, která neexistuje? (Chybový kód 404).</li>
+    </ul>
+</section>
+        <section id="q2" class="question" style="display:none">
+    <h2>Otázka 17 – Základní syntaxe HTML, CSS, JavaScriptu a PHP</h2>
+    <p>Moderní webová stránka je tvořena kombinací těchto čtyř technologií. HTML tvoří <strong>kostru</strong>, CSS <strong>vzhled</strong>, JavaScript zajišťuje <strong>interaktivitu</strong> na straně uživatele a PHP <strong>logiku</strong> na straně serveru.</p>
+
+    <h3>1. HTML – HyperText Markup Language</h3>
+    <p>HTML je značkovací jazyk. Jeho syntaxe je založena na <strong>tagy</strong> (značkách), které jsou obvykle párové.</p>
+    
+    
+
+    <h4>Základní kostra dokumentu</h4>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="cs"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Název stránky&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hlavní nadpis&lt;/h1&gt;
+    &lt;p&gt;Text odstavce s &lt;a href="#"&gt;odkazem&lt;/a&gt;.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <h4>Časté HTML značky</h4>
+    <table border="1">
+        <tr>
+            <th>Značka</th>
+            <th>Význam</th>
+        </tr>
+        <tr>
+            <td><code>&lt;h1&gt; – &lt;h6&gt;</code></td>
+            <td>Nadpisy různých úrovní důležitosti.</td>
+        </tr>
+        <tr>
+            <td><code>&lt;p&gt;</code></td>
+            <td>Odstavec souvislého textu.</td>
+        </tr>
+        <tr>
+            <td><code>&lt;img src="..."&gt;</code></td>
+            <td>Vložení obrázku (nepárový tag).</td>
+        </tr>
+        <tr>
+            <td><code>&lt;div&gt;</code></td>
+            <td>Univerzální blokový prvek pro strukturu.</td>
+        </tr>
+    </table>
+
+    <h3>2. CSS – Cascading Style Sheets</h3>
+    <p>CSS používá systém <strong>selektorů</strong> a <strong>vlastností</strong>. „Kaskádové“ znamená, že se styly mohou vrstvit a dědit.</p>
+    
+    
+
+    <h4>Ukázka syntaxe</h4>
+    <pre><code>/* Selektor vybere prvek, složené závorky obsahují pravidla */
+body {
+    background-color: #f0f0f0; /* barva pozadí */
+    font-family: Arial, sans-serif;
+}
+
+.zvyrazneny-text {
+    color: red;
+    font-weight: bold;
+}</code></pre>
+
+    <h4>Typy selektorů</h4>
+    <ul>
+        <li><strong>Typový:</strong> <code>p { ... }</code> (ovlivní všechny odstavce).</li>
+        <li><strong>Třída:</strong> <code>.moje-trida { ... }</code> (pro více prvků, v HTML jako class="...").</li>
+        <li><strong>ID:</strong> <code>#unikatni { ... }</code> (pro jeden konkrétní prvek na stránce).</li>
+    </ul>
+
+    <h3>3. JavaScript (JS)</h3>
+    <p>JavaScript je programovací jazyk, který běží v prohlížeči (client-side). Umožňuje manipulovat s obsahem stránky bez jejího znovunačtení pomocí <strong>DOM (Document Object Model)</strong>.</p>
+    
+    
+
+    <h4>Základní logika a události</h4>
+    <pre><code>// Definice proměnných a funkce
+let pocetKliknuti = 0;
+
+function pozdrav() {
+    pocetKliknuti++;
+    alert("Klikli jste už " + pocetKliknuti + "x!");
+}</code></pre>
+    <p>V HTML pak na JS reagujeme pomocí <strong>eventů</strong>, např.: <code>&lt;button onclick="pozdrav()"&gt;Tlačítko&lt;/button&gt;</code>.</p>
+
+    <h3>4. PHP – Hypertext Preprocessor</h3>
+    <p>PHP je skriptovací jazyk, který běží <strong>na serveru</strong>. Klient (prohlížeč) PHP kód nikdy neuvidí, dostane pouze výsledné HTML, které PHP vygenerovalo.</p>
+    
+    
+
+    <h4>Základní syntaxe</h4>
+    <p>PHP kód se vkládá do speciálních značek <code>&lt;?php ... ?&gt;</code>. Proměnné vždy začínají symbolem <strong>$</strong>.</p>
+    <pre><code>&lt;?php
+$jmeno = "Admin";
+$hodina = date("H");
+
+if ($hodina < 12) {
+    echo "Dobré ráno, " . $jmeno;
+} else {
+    echo "Dobrý den, " . $jmeno;
+}
+?&gt;</code></pre>
+
+    <h4>Hlavní rozdíl: JS vs. PHP</h4>
+    <ul>
+        <li><strong>JavaScript:</strong> Vidí uživatel v kódu, provádí se u něj v počítači (např. kontrola, zda je v poli e-mailu zavináč).</li>
+        <li><strong>PHP:</strong> Skryté na serveru, pracuje s databází (např. ověření, zda je heslo uživatele správné).</li>
+    </ul>
+
+    <h3>Závěr</h3>
+    <p>Pamatujte, že HTML je <strong>podstatné jméno</strong> (věc), CSS je <strong>přídavné jméno</strong> (vlastnost), JavaScript je <strong>sloveso</strong> (akce) a PHP je <strong>mozek v zákulisí</strong> (server).</p>
+</section>
+        <section id="q3" class="question" style="display:none">
+    <h2>Otázka 18 – Webové stránky: Typy, layout a sémantika</h2>
+
+    <h3>1. Statické a dynamické webové stránky</h3>
+    <p>Základní rozdíl spočívá v tom, <strong>kdy a kde</strong> obsah vzniká. Zatímco statický web je "vytesán do kamene", dynamický web se skládá jako skládačka v okamžiku, kdy na něj kliknete.</p>
+    
+    
+
+    <h4>1.1 Statické webové stránky</h4>
+    <ul>
+        <li><strong>Princip:</strong> Obsah je pevně uložen v souborech .html na serveru.</li>
+        <li><strong>Výhody:</strong> Blesková rychlost, vysoká bezpečnost (není tam databáze, kterou by šlo hacknout), levný hosting.</li>
+        <li><strong>Nevýhody:</strong> Pro každou změnu (např. v menu) musíte ručně přepsat všechny soubory.</li>
+    </ul>
+
+    <h4>1.2 Dynamické webové stránky</h4>
+    <ul>
+        <li><strong>Princip:</strong> Stránka se generuje až na vyžádání (pomocí PHP, Pythonu apod.). Data se tahají z <strong>databáze</strong>.</li>
+        <li><strong>Výhody:</strong> Snadná správa přes redakční systémy (WordPress), možnost přihlášení, personalizace (e-shopy, sociální sítě).</li>
+        <li><strong>Nevýhody:</strong> Pomalejší načítání, vyšší riziko napadení (SQL injection).</li>
+    </ul>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Kritérium</th>
+                <th>Statický web</th>
+                <th>Dynamický web</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Obsah</strong></td>
+                <td>Pevný (v souboru)</td>
+                <td>Generovaný (z databáze)</td>
+            </tr>
+            <tr>
+                <td><strong>Interaktivita</strong></td>
+                <td>Minimální</td>
+                <td>Vysoká (formuláře, uživatelé)</td>
+            </tr>
+            <tr>
+                <td><strong>Správa</strong></td>
+                <td>Ruční editace kódu</td>
+                <td>Administrační rozhraní</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>2. Layout webu a sémantika</h3>
+    <p>Dříve se weby skládaly pomocí neviditelných tabulek (špatně!), dnes používáme <strong>sémantické tagy HTML5</strong>. Ty říkají prohlížeči a vyhledávačům, co která část stránky znamená.</p>
+    
+    
+
+    <h4>Významné sémantické tagy:</h4>
+    <ul>
+        <li><code>&lt;header&gt;</code> – Hlavička (logo, název).</li>
+        <li><code>&lt;nav&gt;</code> – Hlavní navigace.</li>
+        <li><code>&lt;main&gt;</code> – Unikátní hlavní obsah stránky (pouze 1x na stránku).</li>
+        <li><code>&lt;section&gt;</code> a <code>&lt;article&gt;</code> – Logické bloky a samostatné příspěvky.</li>
+        <li><code>&lt;aside&gt;</code> – Postranní panel (reklamy, související odkazy).</li>
+        <li><code>&lt;footer&gt;</code> – Patička (autorská práva, kontakt).</li>
+    </ul>
+
+    <h3>3. Základní HTML tagy v praxi</h3>
+    <p>HTML tagy dělíme na <strong>blokové</strong> (začínají na novém řádku) a <strong>řádkové</strong> (jsou součástí textu).</p>
+
+    <pre><code>&lt;h1&gt;Hlavní nadpis&lt;/h1&gt;
+&lt;p&gt;Toto je odstavec s &lt;strong&gt;tučným textem&lt;/strong&gt; a &lt;em&gt;kurzívou&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt; &lt;!-- Vodorovná čára --&gt;
+&lt;a href="https://google.com"&gt;Odkaz na Google&lt;/a&gt;
+&lt;img src="pes.jpg" alt="Fotka zlatého retrívra"&gt;</code></pre>
+
+    <h3>4. Tabulky v HTML</h3>
+    <blockquote><strong>Pozor:</strong> Nikdy nepoužívejte tabulky pro tvorbu vzhledu (layoutu)! Slouží výhradně pro výpis dat, jako jsou ceníky nebo rozvrhy.</blockquote>
+
+    <h4>Struktura tabulky:</h4>
+    <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Předmět&lt;/th&gt;
+            &lt;th&gt;Známka&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Informatika&lt;/td&gt;
+            &lt;td&gt;1&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+    <h3>Závěrečné shrnutí</h3>
+    <ul>
+        <li><strong>Statický web:</strong> Levný a rychlý, ale nepohodlný na údržbu.</li>
+        <li><strong>Sémantika:</strong> Pomáhá SEO (vyhledávačům jako Google lépe rozumět webu).</li>
+        <li><strong>Atribut ALT:</strong> U obrázků je povinný kvůli přístupnosti (pro nevidomé).</li>
+    </ul>
+</section>
+        <section id="q4" class="question" style="display:none">
+    <h2>Otázka 19 – Parametry ovlivňující čitelnost textu (HTML + CSS)</h2>
+
+    <h3>1. Co je čitelnost textu (Readability)</h3>
+    <p>Čitelnost je míra toho, jak snadno a pohodlně dokáže čtenář text přečíst a porozumět mu. Na webu je kritická, protože uživatelé text často jen <strong>skenují</strong>. Pokud narazí na nepřehledný blok textu, web okamžitě opouštějí.</p>
+
+    <h3>2. Hlavní typografické parametry v CSS</h3>
+    <p>Správné nastavení těchto vlastností v CSS zásadně ovlivňuje únavu očí uživatele.</p>
+
+    <h4>2.1 Font-family (Typ písma)</h4>
+    <p>Pro web se doporučují <strong>bezpatková písma (sans-serif)</strong>, jako je Arial, Roboto nebo Open Sans, protože jsou čitelnější na obrazovkách s nižším rozlišením.</p>
+    <pre><code>body { font-family: 'Roboto', Arial, sans-serif; }</code></pre>
+
+    <h4>2.2 Font-size a Line-height (Velikost a řádkování)</h4>
+    
+    <ul>
+        <li><strong>Velikost:</strong> Pro běžný text se dnes doporučuje 16–18 px.</li>
+        <li><strong>Řádkování (Line-height):</strong> Určuje vertikální prostor mezi řádky. Ideální hodnota je <strong>1.5 až 1.8</strong>. Pokud je řádkování příliš malé, text se "slévá".</li>
+    </ul>
+
+    <h4>2.3 Délka řádku a šířka kontejneru</h4>
+    
+    <p>Příliš dlouhé řádky unavují oko, protože je těžké najít začátek dalšího řádku. Ideální délka je <strong>50–75 znaků</strong>. V CSS toho docílíme pomocí <code>max-width</code> a jednotky <code>ch</code> (šířka znaku '0').</p>
+    <pre><code>.content { max-width: 70ch; margin: 0 auto; }</code></pre>
+
+    <h4>2.4 Kontrast a Barvy</h4>
+    
+    <p>Dle metodiky <strong>WCAG</strong> by měl být minimální kontrastní poměr 4.5:1. Nejlepší je tmavě šedý text na velmi světle šedém nebo bílém pozadí (čistě černá na čistě bílé může působit příliš agresivně).</p>
+
+    <h3>3. Hierarchie a sémantika</h3>
+    <p>Struktura stránky musí být jasná na první pohled díky správnému použití nadpisů <code>&lt;h1&gt;</code> až <code>&lt;h6&gt;</code>.</p>
+    <blockquote><strong>Pravidlo:</strong> Nadpis <code>&lt;h1&gt;</code> smí být na stránce pouze jeden. Nadpisy nesmí přeskakovat úrovně (např. z H1 rovnou na H3).</blockquote>
+
+    <h3>4. Box Model: Margin vs. Padding</h3>
+    <p>Prostor kolem textu (tzv. "white space") dává obsahu "vzduch" a zvyšuje přehlednost.</p>
+    
+    <ul>
+        <li><strong>Padding:</strong> Vnitřní prostor (např. odsazení textu od okraje barevného rámečku).</li>
+        <li><strong>Margin:</strong> Vnější prostor (např. mezera mezi dvěma odstavci).</li>
+    </ul>
+
+    <h3>5. Jednotky: Absolutní vs. Relativní</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Jednotka</th>
+                <th>Typ</th>
+                <th>Použití</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>px</strong></td>
+                <td>Absolutní</td>
+                <td>Pevné rozměry (okraje, stíny).</td>
+            </tr>
+            <tr>
+                <td><strong>rem / em</strong></td>
+                <td>Relativní</td>
+                <td><strong>Ideální pro fonty</strong> (reaguje na nastavení prohlížeče).</td>
+            </tr>
+            <tr>
+                <td><strong>% / vw / vh</strong></td>
+                <td>Relativní</td>
+                <td>Responzivní layouty (šířka kontejneru).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>6. Přístupnost (Accessibility)</h3>
+    <p>Čitelnost není jen o vzhledu, ale i o tom, aby web přečetly čtečky pro nevidomé:</p>
+    <ul>
+        <li>Používání sémantických tagů (<code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>).</li>
+        <li><strong>Alt texty</strong> u obrázků.</li>
+        <li>Dostatečný kontrast pro lidi se zrakovými vadami.</li>
+    </ul>
+
+    <h3>Tipy pro zkoušku (15min výklad)</h3>
+    <ol>
+        <li><strong>Začněte definicí:</strong> Co je to čitelnost a proč na ní záleží (uživatelé neskenují, ale skáčou po textu).</li>
+        <li><strong>Technické parametry:</strong> Vysvětlete trojici <code>font-size</code>, <code>line-height</code> a <code>max-width</code>.</li>
+        <li><strong>Porovnejte jednotky:</strong> Proč je <code>rem</code> lepší než <code>px</code> pro přístupnost.</li>
+        <li><strong>Vizuální hierarchie:</strong> Proč je důležitý kontrast a sémantika nadpisů.</li>
+        <li><strong>Závěr:</strong> Zmiňte responzivitu – čitelnost na mobilu vs. na desktopu.</li>
+    </ol>
+</section>
+    </div>
+    <footer>
+        &copy; 2026 Studijní materiály
+    </footer>
+    <script>
+        const links = document.querySelectorAll('.sidebar a[data-question]');
+        const sections = document.querySelectorAll('.question');
+        links.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = link.getAttribute('data-question');
+                sections.forEach(sec => {
+                    sec.style.display = sec.id === target ? '' : 'none';
+                });
+                links.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Bezpečnost a ochrana informací</h1>
+    </header>
+    <div class="sidebar">
+        <a href="index.html" class="button" style="margin: 10px; display:block; text-align:center;">Hlavní stránka</a>
+        <ul>
+            <li><a href="#" data-question="q1" class="active">1 – Bezpečnostní analýza (Analýza rizik</a></li>
+            <li><a href="#" data-question="q2">2 – Bezpečnost v informačních systémech</a></li>
+            <li><a href="#" data-question="q3">3 – Elektronický podpis, certifikáty a časová razítka</a></li>
+            <li><a href="#" data-question="q4">4 – Bezpečnost v síti</a></li>
+            <li><a href="#" data-question="q5">5 – Domény a hosting</a></li>
+            <li><a href="#" data-question="q6">6 – Kyberkriminalita</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <section id="q1" class="question">
+            <h2>Otázka 1 – Bezpečnostní analýza (Analýza rizik)</h2>
+            <h3>Základní charakteristika</h3>
+                <p>Bezpečnostní analýza (analýza rizik) je systematický proces, jehož cílem je identifikovat, vyhodnotit a minimalizovat rizika, která mohou ohrozit informační systém organizace.</p>
+                <p>V praxi jde o jeden z nejdůležitějších nástrojů řízení informační bezpečnosti (Information Security Management). Informační systém netvoří jen technologie, ale komplexní celek:</p>
+                <ul>
+                    <li>💻 <strong>Hardware</strong> – servery, počítače, síťové prvky.</li>
+                    <li>💾 <strong>Software</strong> – operační systémy, aplikace.</li>
+                    <li>📊 <strong>Data</strong> – informace uložené v systému.</li>
+                    <li>👥 <strong>Lidé</strong> – uživatelé, správci, administrátoři.</li>
+                    <li>⚙️ <strong>Procesy</strong> – způsob práce, pravidla, dokumentace.</li>
+                </ul>
+                <p>Bezpečnostní analýza předchází incidentům, pomáhá efektivně rozdělit prostředky na ochranu a zvyšuje důvěru klientů i partnerů.</p>
+
+                <h3>Základní principy (CIA Triáda)</h3>
+                <p>Každý bezpečnostní systém se opírá o tři základní pilíře informační bezpečnosti:</p>
+
+                <table>
+                    <tr><th>Princip</th><th>Popis</th><th>Příklad</th></tr>
+                    <tr><td><strong>Důvěrnost</strong> (Confidentiality)</td><td>Informace smí číst pouze oprávněné osoby.</td><td>Přístup do databáze mají jen zaměstnanci s právem.</td></tr>
+                    <tr><td><strong>Integrita</strong> (Integrity)</td><td>Data nesmí být neoprávněně změněna nebo poškozena.</td><td>Zajištění, že obsah dat při přenosu zůstává nezměněn.</td></tr>
+                    <tr><td><strong>Dostupnost</strong> (Availability)</td><td>Systém a data musí být k dispozici, když je potřebujeme.</td><td>Web banky funguje 24/7 i při výpadku serveru.</td></tr>
+                </table>
+
+                <h3>Základní pojmy</h3>
+                <table>
+                    <tr><th>Pojem</th><th>Význam</th><th>Příklad</th></tr>
+                    <tr><td><strong>Aktivum</strong></td><td>Cenný prvek systému, který chceme chránit.</td><td>Data o zákaznících, servery, zaměstnanci.</td></tr>
+                    <tr><td><strong>Hrozba</strong></td><td>Událost nebo jev, který může způsobit škodu.</td><td>Kyberútok, požár, lidská chyba.</td></tr>
+                    <tr><td><strong>Zranitelnost</strong></td><td>Slabina systému, kterou může hrozba využít.</td><td>Slabé heslo, neaktualizovaný software.</td></tr>
+                    <tr><td><strong>Riziko</strong></td><td>Pravděpodobnost, že hrozba zneužije zranitelnost.</td><td>Únik dat kvůli špatně nastavenému serveru.</td></tr>
+                    <tr><td><strong>Opatření</strong></td><td>Kroky ke snížení rizika.</td><td>Firewall, šifrování, školení.</td></tr>
+                </table>
+
+                <h3>Postup bezpečnostní analýzy</h3>
+                <p>Proces probíhá v několika logických krocích:</p>
+                <ol>
+                    <li><strong>Identifikace aktiv:</strong> Seznam všech součástí systému a určení jejich hodnoty.</li>
+                    <li><strong>Identifikace hrozeb a zranitelností:</strong> Rozpoznání technických, lidských, přírodních i organizačních rizik.</li>
+                    <li><strong>Vyhodnocení rizik:</strong> Přiřazení pravděpodobnosti a dopadu. Výsledkem je matice rizik:</li>
+                </ol>
+                <table>
+                    <tr><th>Dopad \ Pravděpodobnost</th><th>Nízká</th><th>Střední</th><th>Vysoká</th></tr>
+                    <tr><td><strong>Malý</strong></td><td>Nízké</td><td>Nízké</td><td>Střední</td></tr>
+                    <tr><td><strong>Střední</strong></td><td>Nízké</td><td>Střední</td><td>Vysoké</td></tr>
+                    <tr><td><strong>Velký</strong></td><td>Střední</td><td>Vysoké</td><td><strong>Kritické</strong></td></tr>
+                </table>
+
+                <h3>Typy bezpečnostních opatření</h3>
+                <p>Opatření dělíme do tří hlavních kategorií:</p>
+                <ul>
+                    <li>🛡️ <strong>Technická:</strong> Firewall, antivir, šifrování, zálohování, aktualizace.</li>
+                    <li>📋 <strong>Organizační:</strong> Školení, bezpečnostní politika, řízení přístupů (princip nejmenších oprávnění).</li>
+                    <li>🔐 <strong>Fyzická:</strong> Zámky, kamery, přístupové karty, klimatizace serveroven.</li>
+                    <li>⚖️ <strong>Legislativní:</strong> Soulad s GDPR a Zákonem o kybernetické bezpečnosti.</li>
+                </ul>
+
+                <h3>Legislativa a normy</h3>
+                <ul>
+                    <li>🇨🇿 <strong>Zákon č. 181/2014 Sb.</strong> o kybernetické bezpečnosti.</li>
+                    <li>🇪🇺 <strong>GDPR</strong> – ochrana osobních údajů.</li>
+                    <li>📜 <strong>ISO/IEC 27001</strong> – mezinárodní norma pro systémy řízení bezpečnosti (ISMS).</li>
+                    <li>📊 <strong>ISO/IEC 27005</strong> – specificky zaměřena na řízení rizik.</li>
+                </ul>
+
+                <h3>Shrnutí</h3>
+                <p>Bezpečnostní analýza pomáhá odhalit slabá místa dříve, než jsou zneužita, a zajišťuje soulad s právem. Cílem není rizika zcela odstranit (což je nemožné), ale řídit je tak, aby byla na přijatelném stupni.</p>
+
+                <h3>Zkušební otázky k tématu</h3>
+                <ul>
+                    <li>Co znamená zkratka CIA v kontextu bezpečnosti?</li>
+                    <li>Jaký je rozdíl mezi hrozbou a zranitelností?</li>
+                    <li>K čemu slouží matice rizik a jak se interpretuje "kritické riziko"?</li>
+                    <li>Jaký význam má lidský faktor v analýze rizik a jak jej lze ovlivnit?</li>
+                    <li>Co je to „plán obnovy po havárii“ (Disaster Recovery Plan) a jak souvisí s analýzou?</li>
+                </ul>
+        </section>
+        <section id="q2" class="question" style="display:none">
+            <h2>Otázka 2 – Bezpečnost v informačních systémech</h2>
+            <h3>Základní charakteristika</h3>
+<p>Bezpečnost v informačních systémech (IS) není jednorázový produkt, ale <strong>nepřetržitý proces</strong>. Jde o soubor opatření, technologií a pravidel, která chrání integritu, dostupnost a důvěrnost aktiv organizace.</p>
+<p>Informační systém je citlivý mechanismus složený z pěti základních prvků:</p>
+<ul>
+    <li>👤 <strong>Lidé</strong> – často nejslabší článek (uživatelé, administrátoři).</li>
+    <li>📊 <strong>Data</strong> – to nejcennější, co IS obsahuje.</li>
+    <li>🏗️ <strong>Technické vybavení</strong> – servery, sítě, koncová zařízení.</li>
+    <li>💻 <strong>Programové vybavení</strong> – operační systémy a aplikace.</li>
+    <li>📜 <strong>Postupy</strong> – pravidla, jak se systémem pracovat.</li>
+</ul>
+
+<h3>Základní pilíře (CIA Triáda a další)</h3>
+<p>Základem všeho je tzv. CIA triáda, kterou doplňují principy autenticity a nezpochybnitelnosti.</p>
+
+
+
+<table>
+    <tr><th>Princip</th><th>Význam</th><th>Příklad v praxi</th></tr>
+    <tr><td><strong>Confidentiality</strong> (Důvěrnost)</td><td>Přístup mají jen oprávnění.</td><td>Šifrování disku, silná hesla.</td></tr>
+    <tr><td><strong>Integrity</strong> (Integrita)</td><td>Data jsou přesná a nezměněná.</td><td>Digitální podpisy, kontrolní součty (hash).</td></tr>
+    <tr><td><strong>Availability</strong> (Dostupnost)</td><td>Systém běží, když je potřeba.</td><td>Záložní zdroje (UPS), ochrana proti DDoS.</td></tr>
+    <tr><td><strong>Authenticity</strong> (Autenticita)</td><td>Ověření identity subjektu.</td><td>Vícefaktorové ověření (MFA).</td></tr>
+    <tr><td><strong>Non-repudiation</strong> (Nezpochybnitelnost)</td><td>Nelze popřít provedenou akci.</td><td>Logování aktivit, časová razítka.</td></tr>
+</table>
+
+<h3>Typy hrozeb</h3>
+<p>Hrozby dělíme podle jejich původu na technické, lidské a fyzické:</p>
+
+
+
+<h4>A) Technické hrozby</h4>
+<ul>
+    <li>🦠 <strong>Malware:</strong> Viry, ransomware (vyděračský SW), spyware (špehování).</li>
+    <li>⚔️ <strong>DoS/DDoS:</strong> Zahlcení systému požadavky, dokud nespadne.</li>
+    <li>🎣 <strong>Phishing:</strong> Podvodné zprávy s cílem vylákat přihlašovací údaje.</li>
+    <li>🕵️ <strong>Man-in-the-Middle (MITM):</strong> Odposlech komunikace mezi dvěma stranami.</li>
+</ul>
+
+<h4>B) Lidské a organizační hrozby</h4>
+<ul>
+    <li>🎭 <strong>Sociální inženýrství:</strong> Manipulace s lidmi (např. "pretexting" – vydávání se za technickou podporu).</li>
+    <li>😡 <strong>Vnitřní hrozba:</strong> Úmyslná škoda způsobená zaměstnancem.</li>
+    <li>🤦 <strong>Lidská chyba:</strong> Špatně nastavený firewall, ztráta nešifrovaného USB.</li>
+</ul>
+
+<h3>Opatření a obrana</h3>
+<p>Efektivní obrana musí být vícevrstvá (tzv. Defense in Depth).</p>
+
+<h4>🛡️ Technická opatření</h4>
+<ul>
+    <li><strong>Firewall & IDS/IPS:</strong> Filtrace provozu a detekce průniků.</li>
+    <li><strong>Šifrování:</strong> Ochrana dat v klidu (na disku) i při přenosu (HTTPS/TLS).</li>
+    <li><strong>MFA (Multi-Factor Authentication):</strong> Kombinace "toho, co vím" (heslo) a "toho, co mám" (mobilní klíč).</li>
+</ul>
+<h4>📋 Organizační opatření</h4>
+<ul>
+    <li><strong>BCP (Business Continuity Plan):</strong> Jak udržet firmu v chodu během krize.</li>
+    <li><strong>DRP (Disaster Recovery Plan):</strong> Jak technicky obnovit systémy po havárii.</li>
+    <li><strong>Pravidelné školení:</strong> Zvyšování "bezpečnostního povědomí" (security awareness).</li>
+</ul>
+
+<h3>Právní rámec a etika</h3>
+<p>V ČR a EU se bezpečnost řídí přísnými pravidly:</p>
+<ul>
+    <li>⚖️ <strong>Zákon o kybernetické bezpečnosti (181/2014 Sb.):</strong> Definuje povinnosti pro kritickou infrastrukturu.</li>
+    <li>🇪🇺 <strong>GDPR:</strong> Zaměřuje se na ochranu soukromí a osobních údajů uživatelů.</li>
+    <li>🤝 <strong>Etika:</strong> Rozlišujeme mezi <em>White-hat</em> (pomáhají, hledají chyby se svolením) a <em>Black-hat</em> (útočí nelegálně) hackery.</li>
+</ul>
+
+<h3>Praktický příklad: Úniky na Discordu</h3>
+<p>K únikům často dochází kombinací technologické chyby a lidského selhání (např. krádež session tokenů přes malware). Prevencí je používání <strong>MFA</strong>, kontrola oprávnění botů a neklikat na podezřelé odkazy v DM.</p>
+
+<h3>Shrnutí</h3>
+<p>Bezpečnost je jen tak silná, jako její <strong>nejslabší článek</strong>. Většinou jím není špatný kód, ale neopatrný uživatel. Kombinace silných technických nástrojů a vzdělaných lidí je nejlepší cestou k ochraně dat.</p>
+
+<h3>Zkušební otázky k tématu</h3>
+<ul>
+    <li>Jaký je rozdíl mezi BCP a DRP plány?</li>
+    <li>Co je to sociální inženýrství a uveďte příklad?</li>
+    <li>Vysvětlete rozdíl mezi DoS a DDoS útokem.</li>
+    <li>Který zákon v ČR upravuje bezpečnost kritických informačních systémů?</li>
+</ul>
+        </section>
+        <section id="q3" class="question">
+<h2>Otázka 3 – Elektronický podpis, certifikáty a časová razítka</h2>
+
+<h3>Základní charakteristika</h3>
+<p>Aby byla elektronická komunikace právně závazná a bezpečná, musí splňovat tři podmínky: <strong>identitu</strong> (vím, kdo píše), <strong>integritu</strong> (vím, že to nikdo nezměnil) a <strong>nepopiratelnost</strong> (vím, kdy to podepsal). K tomu slouží kryptografické nástroje.</p>
+<p>Základem všeho je <strong>asymetrická kryptografie</strong>, která pracuje s párem klíčů:</p>
+<ul>
+    <li>🔑 <strong>Soukromý klíč:</strong> Máte ho jen vy (např. na čipové kartě nebo v počítači). Slouží k vytvoření podpisu.</li>
+    <li>🔓 <strong>Veřejný klíč:</strong> Je dostupný všem. Slouží k ověření, že podpis je váš.</li>
+</ul>
+
+<h3>1. Elektronický podpis</h3>
+<p>Elektronický podpis není obrázek vašeho rukou psaného podpisu vložený do Wordu. Je to matematický výsledek operace nad obsahem dokumentu a vaším soukromým klíčem.</p>
+
+
+
+<h4>Typy podpisů podle nařízení eIDAS:</h4>
+<table>
+    <tr><th>Typ podpisu</th><th>Záruky</th><th>Technické řešení</th></tr>
+    <tr><td><strong>Prostý</strong></td><td>Nízké</td><td>E-mailový podpis, naskenovaný obrázek.</td></tr>
+    <tr><td><strong>Zaručený (pokročilý)</strong></td><td>Vysoké</td><td>Vázán na podepisující osobu a certifikát.</td></tr>
+    <tr><td><strong>Kvalifikovaný</strong></td><td>Nejvyšší</td><td>Certifikát + certifikované zařízení (USB token, karta). <strong>Rovnocenný vlastnoručnímu podpisu.</strong></td></tr>
+</table>
+
+<h3>2. Digitální certifikáty</h3>
+<p>Certifikát funguje jako „digitální občanka“. Spojuje váš veřejný klíč s vaší identitou. Aby mu ostatní věřili, musí ho vydat důvěryhodná třetí strana – <strong>Certifikační autorita (CA)</strong>.</p>
+<p>V ČR jsou nejznámějšími autoritami <em>PostSignum</em> (Česká pošta), <em>I.CA</em> nebo <em>eIdentity</em>.</p>
+
+
+
+<p><strong>Co certifikát obsahuje?</strong></p>
+<ul>
+    <li>👤 Jméno majitele a vydavatele (autority).</li>
+    <li>🔑 Veřejný klíč majitele.</li>
+    <li>⏳ Doba platnosti (obvykle 1 rok).</li>
+    <li>🔏 Digitální podpis autority (stvrzuje pravost údajů).</li>
+</ul>
+
+<h3>3. Elektronická časová razítka</h3>
+<p>Samotný podpis říká, <em>kdo</em> to podepsal, ale neříká důvěryhodně, <em>kdy</em> se tak stalo (čas v počítači lze snadno přepsat). Časové razítko tento problém řeší.</p>
+
+
+
+<p>Vydává ho <strong>TSA (Time-Stamping Authority)</strong>. Je nezbytné pro:</p>
+<ul>
+    <li>📅 <strong>Dlouhodobou archivaci:</strong> I když certifikát vyprší, razítko dokazuje, že v době podpisu byl platný.</li>
+    <li>⚖️ <strong>Právní úkony:</strong> U smluv nebo podání na úřady je přesný čas klíčový.</li>
+</ul>
+
+<h3>Jak to spolu souvisí? (Shrnutí mechanismu)</h3>
+<p>Představte si, že posíláte PDF smlouvu:</p>
+<ol>
+    <li>Váš software spočítá unikátní otisk dokumentu (hash).</li>
+    <li>Tento otisk „zamknete“ svým <strong>soukromým klíčem</strong> = vznikne <strong>podpis</strong>.</li>
+    <li>K podpisu přiložíte svůj <strong>certifikát</strong>, aby si příjemce mohl vzít váš veřejný klíč.</li>
+    <li>Na závěr si vyžádáte od autority <strong>časové razítko</strong> a „přilepíte“ ho k souboru.</li>
+</ol>
+<p>➡️ Výsledek: Příjemce ví, že jste to vy, dokument je v pořádku a přesně ví, v kolik hodin jste ho podepsali.</p>
+
+<h3>Zkušební otázky k tématu</h3>
+<ul>
+    <li>Lze elektronicky podepsat dokument bez certifikátu?</li>
+    <li>Jaký je rozdíl mezi soukromým a veřejným klíčem?</li>
+    <li>K čemu slouží certifikační autorita (CA)?</li>
+    <li>Proč je důležité časové razítko při archivaci dokumentů na 10 a více let?</li>
+    <li>Co se stane s platností podpisu, když dokument po podepsání změním (přidám tečku)?</li>
+</ul>
+</section>
+        <section id="q4" class="question" style="display:none">
+    <h2>Otázka 4 - Bezpečnost v síti</h2>
+
+    <h3>1. Úvod do bezpečnosti internetu</h3>
+    <p>Internet nebyl původně vytvořen jako bezpečná infrastruktura, proto je ochrana dat dnes klíčová. Bezpečnost stojí na třech základních pilířích, které tvoří tzv. CIA triádu.</p>
+    
+    
+
+    <h4>Důvěrnost (Confidentiality)</h4>
+    <p>Ochrana dat před neoprávněným přístupem, nejčastěji realizovaná pomocí šifrování.</p>
+
+    <h4>Integrita (Integrity)</h4>
+    <p>Zajištění, že data nebyla během přenosu nebo ukládání změněna neoprávněnou osobou či chybou.</p>
+
+    <h4>Dostupnost (Availability)</h4>
+    <p>Jistota, že služby a data jsou uživatelům přístupné v okamžiku, kdy je potřebují.</p>
+
+    <h3>2. Kryptografie – základ bezpečné komunikace</h3>
+    
+    <h4>Symetrické šifrování</h4>
+    <ul>
+        <li>Jeden klíč pro šifrování i dešifrování.</li>
+        <li>Velmi rychlé (vhodné pro velká objemy dat).</li>
+        <li><strong>Nevýhoda:</strong> Problém s bezpečným předáním klíče mezi stranami.</li>
+        <li>Příklady: AES, DES.</li>
+    </ul>
+
+    <h4>Asymetrické šifrování</h4>
+    
+    <ul>
+        <li>Dva klíče: <strong>veřejný</strong> (slouží k zašifrování) a <strong>soukromý</strong> (slouží k dešifrování).</li>
+        <li>Bezpečné pro výměnu klíčů v neznámém prostředí internetu.</li>
+        <li><strong>Nevýhoda:</strong> Výpočetně náročnější a pomalejší než symetrické šifrování.</li>
+        <li>Příklady: RSA, Elliptic Curve (ECC).</li>
+    </ul>
+
+    <h4>Hybridní šifrování</h4>
+    <p>Používá se například v protokolu HTTPS. Asymetrické šifrování se využije pouze k bezpečné dohodě na symetrickém klíči, kterým pak probíhá samotná rychlá komunikace.</p>
+
+    <h3>3. Bezpečnostní protokoly</h3>
+    
+    <h4>HTTPS / TLS</h4>
+    <ul>
+        <li>HTTPS je kombinací protokolu HTTP a šifrovací vrstvy TLS.</li>
+        <li>Zajišťuje šifrovaný kanál mezi prohlížečem a serverem.</li>
+        <li>Ikona zámečku v prohlížeči značí ověřený certifikát a šifrované spojení.</li>
+    </ul>
+
+    <h4>IPsec a SSH</h4>
+    <p><strong>IPsec:</strong> Zabezpečení na síťové vrstvě (L3), využívané především pro vytváření VPN tunelů.</p>
+    <p><strong>SSH (Secure Shell):</strong> Bezpečná vzdálená správa serverů na portu 22, která nahradila nebezpečný Telnet.</p>
+
+    <h4>Wi-Fi zabezpečení</h4>
+    <ul>
+        <li><strong>WEP:</strong> Zastaralý a snadno prolomitelný standard.</li>
+        <li><strong>WPA2:</strong> Současný rozšířený standard.</li>
+        <li><strong>WPA3:</strong> Nejmodernější a nejbezpečnější ochrana bezdrátových sítí.</li>
+    </ul>
+
+    <h3>4. VPN – virtuální privátní síť</h3>
+    <h4>Co je to VPN?</h4>
+    <p>VPN vytváří šifrovaný tunel přes veřejný internet. Zvenčí není vidět obsah komunikace ani skutečná IP adresa uživatele.</p>
+    
+    
+
+    <h4>Typy a využití VPN</h4>
+    <ul>
+        <li><strong>Remote Access VPN:</strong> Pro bezpečné připojení zaměstnanců pracujících z domova.</li>
+        <li><strong>Site-to-Site VPN:</strong> Pro trvalé propojení dvou geograficky oddělených poboček firmy.</li>
+        <li><strong>Využití:</strong> Bezpečnost na veřejných Wi-Fi, přístup do firemní sítě, skrytí identity a obcházení geografických omezení obsahu.</li>
+    </ul>
+
+    <h3>5. Hrozby na internetu</h3>
+    <h4>Malware (Škodlivý software)</h4>
+    <ul>
+        <li><strong>Vir:</strong> Šíří se připojením k legitimním souborům.</li>
+        <li><strong>Ransomware:</strong> Zašifruje data v počítači a požaduje výkupné za jejich odemčení.</li>
+        <li><strong>Spyware:</strong> Skrytě sleduje aktivitu uživatele a krade citlivé údaje.</li>
+    </ul>
+
+    <h4>Phishing a Botnet</h4>
+    <p><strong>Phishing:</strong> Podvodné e-maily a weby (např. falešné bankovnictví), které se snaží z uživatele vylákat hesla.</p>
+    <p><strong>Botnet:</strong> Síť „zombie“ zařízení ovládaných útočníkem, která se používá k hromadným útokům (např. DDoS).</p>
+
+    <h3>6. Ochrana – jak se bránit</h3>
+    <ul>
+        <li><strong>Antivirus / Antimalware:</strong> Aktivní ochrana souborů a sledování podezřelého chování programů.</li>
+        <li><strong>Firewall:</strong> Kontrola a řízení příchozího i odchozího síťového provozu.</li>
+        <li><strong>Aktualizace:</strong> Pravidelný „patch management“ opravuje chyby, které by mohli útočníci zneužít (zero-day útoky).</li>
+        <li><strong>Autentizace:</strong> Používání silných hesel a povinné <strong>2FA/MFA</strong> (vícefaktorové ověření).</li>
+        <li><strong>Zálohování:</strong> Pravidlo 3–2–1 (3 kopie, 2 různá média, 1 mimo lokalitu) jako hlavní obrana proti ransomware.</li>
+    </ul>
+
+    <h3>7. Doporučená schémata k maturitní zkoušce</h3>
+    <h4>Schéma VPN Tunelu</h4>
+    <p>Počítač &rarr; internet (veřejný mrak) &rarr; šifrovaný tunel (trubka) &rarr; cílový server. Útočník vidí pouze existenci tunelu, nikoliv jeho obsah.</p>
+
+    <h4>Schéma Asymetrické šifry</h4>
+    <p>Zpráva vložená do truhly &rarr; zamčeno veřejným klíčem příjemce &rarr; bezpečný transport &rarr; odemčeno soukromým klíčem příjemce.</p>
+
+    <h3>8. Závěr</h3>
+    <p>Bezpečnost není jednorázový stav, ale neustálý <strong>proces</strong>. Ochrana musí být vrstvená (tzv. Defense in Depth). Nejslabším článkem bezpečnosti zůstává <strong>lidský faktor</strong>, proto je vzdělávání uživatelů stejně důležité jako technické zabezpečení.</p>
+</section>
+        <section id="q5" class="question" style="display:none">
+<section>
+    <h2>Otázka 5 - Kryptografie – princip, šifrovací algoritmy, využití a kryptoanalýza</h2>
+
+    <h3>1. Vymezení pojmu kryptografie</h3>
+    <p>Kryptografie je vědní disciplína zabývající se ochranou informací pomocí matematických a algoritmických metod. Není to jen o „tajných písmech“, ale o zajištění integrity a důvěry v digitálním světě.</p>
+    
+    <p><strong>Hlavní pilíře bezpečnosti:</strong></p>
+    <ul>
+        <li><strong>Důvěrnost (Confidentiality):</strong> Přístup mají jen oprávněné osoby.</li>
+        <li><strong>Integrita (Integrity):</strong> Data nebyla cestou změněna.</li>
+        <li><strong>Autentizace (Authentication):</strong> Ověření identity stran.</li>
+        <li><strong>Nepopiratelnost (Non-repudiation):</strong> Autor nemůže tvrdit, že zprávu neposlal.</li>
+    </ul>
+
+    <h3>2. Základní principy kryptografie</h3>
+    <h4>2.1 Šifrování a dešifrování</h4>
+    <p>Proces převodu čitelné zprávy (plaintext) na nečitelný chaos (ciphertext) a zpět.</p>
+    
+    
+
+    <h4>2.2 Kryptografický klíč a Kerckhoffsův princip</h4>
+    <p>Klíč je proměnný parametr algoritmu. Moderní bezpečnost stojí na <strong>Kerckhoffsově principu</strong>: Bezpečnost systému nesmí záviset na utajení algoritmu (ten může být veřejně známý), ale výhradně na <strong>utajení klíče</strong>.</p>
+
+    <h3>3. Dělení kryptografie a šifrovacích algoritmů</h3>
+    
+    <h4>3.1 Symetrická kryptografie</h4>
+    
+    <p>Používá <strong>jeden stejný klíč</strong> pro šifrování i dešifrování. Je velmi rychlá, ale rizikem je nutnost bezpečného předání klíče mezi stranami.</p>
+    <ul>
+        <li><strong>Blokové šifry:</strong> AES (současný standard), DES (zastaralé), 3DES.</li>
+        <li><strong>Proudové šifry:</strong> ChaCha20, RC4 (nebezpečná).</li>
+    </ul>
+
+    <h4>3.2 Asymetrická kryptografie</h4>
+    
+    <p>Používá <strong>dvojici klíčů</strong>: veřejný (pro šifrování) a soukromý (pro dešifrování). Řeší problém distribuce klíčů, ale je výpočetně náročnější.</p>
+    <ul>
+        <li><strong>RSA:</strong> Založeno na obtížnosti rozkladu velkých čísel (faktorizace).</li>
+        <li><strong>ECC (Elliptic Curve):</strong> Moderní standard, nabízí vysokou bezpečnost při mnohem kratších klíčích.</li>
+    </ul>
+
+    <h4>3.3 Hashovací funkce</h4>
+    
+    <p>Jednosměrná funkce, která z libovolně velkých dat vytvoří unikátní „otisk“ (hash) pevné délky. Nelze ji vrátit zpět.</p>
+    <ul>
+        <li><strong>Vlastnosti:</strong> Odolnost proti kolizím a tzv. lavinový efekt (změna jednoho bitu změní celý hash).</li>
+        <li><strong>Příklady:</strong> SHA-256 (bezpečné), MD5 a SHA-1 (prolomené).</li>
+    </ul>
+
+    <h3>4. Digitální podpis</h3>
+    <p>Digitální podpis využívá asymetrickou kryptografii naruby: autor „zašifruje“ hash zprávy svým <strong>soukromým klíčem</strong>. Kdokoliv s jeho veřejným klíčem pak může ověřit, že zprávu poslal skutečně on a že nebyla cestou změněna.</p>
+    
+    
+
+    <h3>5. Kryptoanalýza – prolamování šifer</h3>
+    <p>Kryptoanalýza hledá slabiny v algoritmech nebo jejich implementaci. Mezi nejčastější útoky patří:</p>
+    <ul>
+        <li><strong>Brute-force (Hrubá síla):</strong> Zkoušení všech možných kombinací klíčů.</li>
+        <li><strong>Slovníkový útok:</strong> Zkoušení nejčastějších hesel.</li>
+        <li><strong>Postranní kanály (Side-channel):</strong> Analýza času výpočtu nebo spotřeby energie zařízení při šifrování.</li>
+        <li><strong>Sociální inženýrství:</strong> Místo lámání matematiky se útočník zaměří na „lámání“ člověka, aby klíč vydal dobrovolně.</li>
+    </ul>
+
+    <h3>6. Současné trendy: Kvantová hrozba</h3>
+    <p>S nástupem kvantových počítačů hrozí, že algoritmy jako RSA budou během okamžiku prolomeny. Proto se dnes vyvíjí <strong>Post-kvantová kryptografie (PQC)</strong>, která staví na matematických problémech odolných i vůči kvantovým výpočtům.</p>
+
+    <h3>7. Závěr k zapamatování</h3>
+    <p>Kombinace všech výše uvedených metod vytváří <strong>hybridní systémy</strong> (např. HTTPS), které využívají rychlost symetrických šifer a bezpečnostní výhody asymetrického předávání klíčů.</p>
+</section>
+        </section>        <section id="q6" class="question" style="display:none">
+           <section>
+    <h2>Otázka 6 – Internet věcí (Internet of Things – IoT)</h2>
+
+    <h3>1. Úvod – vymezení pojmu Internet věcí</h3>
+    <p>Internet věcí (IoT) představuje koncept propojení fyzických zařízení prostřednictvím sítě, nejčastěji internetu. Tato zařízení, od chytrých žárovek po průmyslové stroje, jsou vybavena senzory, výpočetními jednotkami a komunikačními moduly, které jim umožňují sbírat a vyměňovat si data bez nutnosti přímého zásahu člověka.</p>
+    
+    <p>Hlavním cílem je <strong>automatizace</strong>, zvýšení efektivity a získávání dat v reálném čase, což je klíčové pro koncept <strong>Průmysl 4.0</strong>.</p>
+
+    <h3>2. Architektura IoT systému</h3>
+    <p>IoT systémy se obvykle dělí do tří základních logických vrstev, které zajišťují cestu dat od senzoru až k uživateli.</p>
+    
+    
+
+    <h4>2.1 Percepční (senzorová) vrstva</h4>
+    <p>Zajišťuje fyzický kontakt s okolím. Obsahuje:</p>
+    <ul>
+        <li><strong>Senzory:</strong> Měří fyzikální veličiny (teplota, vlhkost, pohyb, tlak, světlo).</li>
+        <li><strong>Akční členy (Aktuátory):</strong> Provádějí fyzickou akci na základě povelu (motory, relé, ventily).</li>
+    </ul>
+
+    <h4>2.2 Síťová (komunikační) vrstva</h4>
+    <p>Slouží k přenosu dat. Využívá různé technologie podle dosahu a spotřeby:</p>
+    <ul>
+        <li><strong>Krátký dosah:</strong> Bluetooth, ZigBee, Z-Wave (vhodné pro chytré domácnosti).</li>
+        <li><strong>Dlouhý dosah (LPWAN):</strong> LoRaWAN, NB-IoT (vhodné pro senzory v terénu s výdrží baterie i několik let).</li>
+        <li><strong>Standardní sítě:</strong> Wi-Fi, Ethernet, mobilní sítě 5G.</li>
+    </ul>
+
+    <h4>2.3 Aplikační vrstva</h4>
+    <p>Zpracovává data a prezentuje je uživateli přes cloudové platformy, mobilní aplikace nebo analytické nástroje. Zde dochází k rozhodování a interpretaci nasbíraných informací.</p>
+
+    <h3>3. Oblasti využití Internetu věcí</h3>
+    
+    
+
+    <h4>3.1 Hlavní segmenty trhu</h4>
+    <ul>
+        <li><strong>Chytrá domácnost (Smart Home):</strong> Inteligentní osvětlení, termostaty (Nest), zabezpečení.</li>
+        <li><strong>Průmyslové IoT (IIoT):</strong> Sledování opotřebení strojů (prediktivní údržba) a logistika.</li>
+        <li><strong>Zdravotnictví (IoMT):</strong> Nositelné senzory (wearables) pro monitoring srdečního tepu nebo hladiny cukru.</li>
+        <li><strong>Chytrá města (Smart Cities):</strong> Inteligentní řízení dopravy, parkovací senzory, chytré odpadkové koše.</li>
+    </ul>
+
+    <h3>4. Bezpečnostní rizika Internetu věcí</h3>
+    <p>IoT zařízení jsou často považována za <strong>nejslabší článek</strong> kybernetické bezpečnosti kvůli jejich omezenému výkonu a často zanedbanému zabezpečení ze strany výrobců.</p>
+
+    <h4>4.1 Typické slabiny</h4>
+    <ul>
+        <li><strong>Hardware:</strong> Nízký výkon neumožňuje provozovat komplexní antivirové programy nebo silné šifrování.</li>
+        <li><strong>Software:</strong> Chybějící aktualizace (patch management) a používání <strong>přednastavených (defaultních) hesel</strong> (např. admin/admin).</li>
+        <li><strong>Komunikace:</strong> Často nezašifrovaný přenos dat v lokální síti.</li>
+    </ul>
+
+    <h4>4.2 Nejčastější hrozby</h4>
+    <p>Zneužité IoT zařízení se často stává součástí <strong>botnetu</strong> (např. známý botnet Mirai), který je následně využíván k masivním <strong>DDoS útokům</strong> na kritickou infrastrukturu.</p>
+
+    <h3>5. Zabezpečení IoT systémů</h3>
+    <h4>5.1 Technická a organizační opatření</h4>
+    <ul>
+        <li><strong>Segmentace sítě:</strong> Provozování IoT zařízení v oddělené síti (VLAN), aby útočník nemohl skrze chytrou lednici napadnout pracovní počítač.</li>
+        <li><strong>Security by Design:</strong> Bezpečnost musí být prioritou už při návrhu zařízení, nikoliv jako dodatečná funkce.</li>
+        <li><strong>Pravidelné aktualizace:</strong> Udržování firmware v aktuálním stavu.</li>
+        <li><strong>Silná autentizace:</strong> Změna výchozích hesel a použití 2FA, pokud je to možné.</li>
+    </ul>
+
+    <h3>6. Legislativa a etika</h3>
+    <p>V Evropské unii podléhá sběr dat z IoT zařízení přísným pravidlům <strong>GDPR</strong>. Výrobci jsou tlačeni k transparentnosti v tom, jaká data sbírají a jak je zabezpečují. Etickým problémem zůstává neustálý dohled a potenciální ztráta soukromí v "propojeném světě".</p>
+
+    <h3>7. Závěr</h3>
+    <p>Internet věcí je motorem moderní digitalizace, ale jeho přínosy jsou přímo úměrné schopnosti zajistit bezpečnost těchto miliard propojených bodů. Bezpečnost v IoT není jen o ochraně dat, ale v případě průmyslu a zdravotnictví i o ochraně <strong>fyzické bezpečnosti a životů</strong>.</p>
+</section>
+    </div>
+    <footer>
+        &copy; 2026 Studijní materiály
+    </footer>
+    <script>
+        const links = document.querySelectorAll('.sidebar a[data-question]');
+        const sections = document.querySelectorAll('.question');
+        links.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = link.getAttribute('data-question');
+                sections.forEach(sec => {
+                    sec.style.display = sec.id === target ? '' : 'none';
+                });
+                links.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
