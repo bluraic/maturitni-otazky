@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Správa otázek - Admin panel</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    header {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    header h1 { color: #333; margin-bottom: 10px; }
+    header p { color: #666; }
+    
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .card h2 { color: #333; margin-bottom: 15px; font-size: 1.3em; }
+    
+    .form-group { margin-bottom: 15px; }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #333;
+    }
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    textarea { min-height: 150px; resize: vertical; }
+    input[type="text"]:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+    }
+    
+    button {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    button:hover { background: #5567d8; }
+    button.danger { background: #e74c3c; }
+    button.danger:hover { background: #c0392b; }
+    button.success { background: #27ae60; }
+    button.success:hover { background: #229954; }
+    
+
+    .questions-list {
+      max-height: 600px;
+      overflow-y: auto;
+    }
+    .question-item {
+      background: #f9f9f9;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-left: 4px solid #667eea;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .question-item.selected { background: #e3f2fd; border-left-color: #2196f3; }
+    .question-info h3 { color: #333; margin-bottom: 3px; font-size: 0.95em; }
+    .question-info p { color: #999; font-size: 0.85em; }
+    .question-actions { display: flex; gap: 5px; }
+    .question-actions button { padding: 6px 12px; font-size: 0.85em; }
+    
+    .toolbar {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .toolbar button { padding: 8px 15px; font-size: 0.9em; }
+    
+    .notification {
+      padding: 12px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      display: none;
+    }
+    .notification.show { display: block; }
+    .notification.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+    .notification.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    
+    .current-question {
+      background: #f0f7ff;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      border-left: 4px solid #667eea;
+    }
+    .current-question p { color: #666; margin-bottom: 5px; }
+    
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: 1fr; }
+      .question-item { flex-direction: column; align-items: flex-start; }
+      .question-actions { margin-top: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎓 Admin panel - Správa otázek</h1>
+      <p>Jednoduše přidávejte, upravujte a spravujte otázky bez editace HTML</p>
+    </header>
+
+    <div class="toolbar">
+      <button class="success" onclick="exportData()">Exportovat data</button>
+      <button onclick="importData()">Importovat data</button>
+      <button class="danger" onclick="resetAllData()">Resetovat na původní</button>
+      <input type="file" id="importFile" accept=".json" style="display:none;">
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <div class="grid">
+
+      <div class="card">
+        <h2>Otázky</h2>
+        <div class="form-group">
+          <label for="categorySelect">Kategorie:</label>
+          <select id="categorySelect" onchange="loadCategory()">
+            <option value="cestina">Čeština</option>
+            <option value="it-ve-verejne-sprave">IT ve veřejné správě</option>
+            <option value="informacni-a-komunikacni-technologie">Informační a komunikační technologie</option>
+          </select>
+        </div>
+        <div class="questions-list" id="questionsList"></div>
+      </div>
+
+      <div class="card">
+        <h2>Editor otázky</h2>
+        <div id="currentQuestion" class="current-question" style="display:none;">
+          <p><strong>ID:</strong> <span id="qId"></span></p>
+          <p><strong>Kategorie:</strong> <span id="qCategory"></span></p>
+        </div>
+
+        <form id="questionForm">
+          <div class="form-group">
+            <label for="qTitle">Název otázky:</label>
+            <input type="text" id="qTitle" placeholder="Zadejte název otázky..." required>
+          </div>
+
+          <div class="form-group">
+            <label for="qContent">Obsah (HTML):</label>
+            <textarea id="qContent" placeholder="Zadejte obsah otázky v HTML formátu..." required></textarea>
+            <small style="color: #999; display: block; margin-top: 5px;">
+              Tipy: &lt;h3&gt;...&lt;/h3&gt; pro nadpisy, &lt;p&gt;...&lt;/p&gt; pro odstavce, &lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt; pro seznamy
+            </small>
+          </div>
+
+          <div style="display: flex; gap: 10px;">
+            <button type="button" class="success" onclick="saveQuestion()" style="flex: 1;">Uložit otázku</button>
+            <button type="button" class="danger" onclick="deleteCurrentQuestion()" style="flex: 1;">Smazat otázku</button>
+          </div>
+        </form>
+
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+
+        <h3 style="color: #333; margin-bottom: 10px;">Přidat novou otázku</h3>
+        <form id="newQuestionForm">
+          <div class="form-group">
+            <label for="newQTitle">Název:</label>
+            <input type="text" id="newQTitle" placeholder="Název nové otázky..." required>
+          </div>
+
+          <div class="form-group">
+            <label for="newQContent">Obsah:</label>
+            <textarea id="newQContent" placeholder="Obsah v HTML..." required></textarea>
+          </div>
+
+          <button type="button" onclick="addNewQuestion()" style="width: 100%;">Přidat otázku</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let allQuestions = {};
+    let currentCategory = 'cestina';
+    let selectedQuestionId = null;
+
+    async function loadData() {
+      try {
+        const response = await fetch('questions.json');
+        allQuestions = (await response.json()).categories;
+        localStorage.setItem('questionData', JSON.stringify(allQuestions));
+        loadCategory();
+        showNotification('✓ Data načtena úspěšně', 'success');
+      } catch (error) {
+        showNotification('✗ Chyba při načítání dat', 'error');
+      }
+    }
+
+    function loadCategory() {
+      currentCategory = document.getElementById('categorySelect').value;
+      selectedQuestionId = null;
+      refreshQuestionsList();
+      clearForm();
+    }
+
+    function refreshQuestionsList() {
+      const questions = allQuestions[currentCategory]?.questions || [];
+      const list = document.getElementById('questionsList');
+      list.innerHTML = '';
+
+      questions.forEach(q => {
+        const item = document.createElement('div');
+        item.className = `question-item ${selectedQuestionId === q.id ? 'selected' : ''}`;
+        item.innerHTML = `
+          <div class="question-info" onclick="selectQuestion('${q.id}')">
+            <h3>${q.id.toUpperCase()} – ${q.title}</h3>
+            <p>${q.content.substring(0, 50)}...</p>
+          </div>
+          <div class="question-actions">
+            <button onclick="selectQuestion('${q.id}')" type="button">Upravit</button>
+            <button class="danger" onclick="deleteQuestion('${q.id}')" type="button">Smazat</button>
+          </div>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function selectQuestion(questionId) {
+      selectedQuestionId = questionId;
+      const question = allQuestions[currentCategory].questions.find(q => q.id === questionId);
+
+      document.getElementById('currentQuestion').style.display = 'block';
+      document.getElementById('qId').textContent = question.id;
+      document.getElementById('qCategory').textContent = currentCategory;
+      document.getElementById('qTitle').value = question.title;
+      document.getElementById('qContent').value = question.content;
+
+      refreshQuestionsList();
+    }
+
+    function saveQuestion() {
+      if (!selectedQuestionId) {
+        showNotification('✗ Vyberte otázku k úpravě', 'error');
+        return;
+      }
+
+      const title = document.getElementById('qTitle').value.trim();
+      const content = document.getElementById('qContent').value.trim();
+
+      if (!title || !content) {
+        showNotification('✗ Vyplňte všechna pole', 'error');
+        return;
+      }
+
+      const question = allQuestions[currentCategory].questions.find(q => q.id === selectedQuestionId);
+      question.title = title;
+      question.content = content;
+
+      // Uložit do localStorage
+      localStorage.setItem('questionData', JSON.stringify(allQuestions));
+
+      showNotification(`✓ Otázka "${title}" uložena`, 'success');
+      refreshQuestionsList();
+    }
+
+    function deleteCurrentQuestion() {
+      if (!selectedQuestionId) return;
+      deleteQuestion(selectedQuestionId);
+    }
+
+    function deleteQuestion(questionId) {
+      if (!confirm('Opravdu chcete smazat tuto otázku?')) return;
+
+      const questions = allQuestions[currentCategory].questions;
+      const index = questions.findIndex(q => q.id === questionId);
+
+      if (index !== -1) {
+        const deleted = questions[index];
+        questions.splice(index, 1);
+        
+        // Uložit do localStorage
+        localStorage.setItem('questionData', JSON.stringify(allQuestions));
+
+        showNotification(`✓ Otázka "${deleted.title}" smazána`, 'success');
+        clearForm();
+        refreshQuestionsList();
+      }
+    }
+
+    function addNewQuestion() {
+      const title = document.getElementById('newQTitle').value.trim();
+      const content = document.getElementById('newQContent').value.trim();
+
+      if (!title || !content) {
+        showNotification('✗ Vyplňte všechna pole', 'error');
+        return;
+      }
+
+      const questions = allQuestions[currentCategory].questions;
+      const maxId = Math.max(...questions.map(q => parseInt(q.id.slice(1))), 0);
+      const newId = `q${maxId + 1}`;
+
+      questions.push({ id: newId, title, content });
+      
+      // Uložit do localStorage
+      localStorage.setItem('questionData', JSON.stringify(allQuestions));
+
+      showNotification(`✓ Otázka "${title}" přidána`, 'success');
+
+      document.getElementById('newQTitle').value = '';
+      document.getElementById('newQContent').value = '';
+      refreshQuestionsList();
+    }
+
+    function clearForm() {
+      selectedQuestionId = null;
+      document.getElementById('currentQuestion').style.display = 'none';
+      document.getElementById('qTitle').value = '';
+      document.getElementById('qContent').value = '';
+    }
+
+    function exportData() {
+      const dataStr = JSON.stringify({ categories: allQuestions }, null, 2);
+      const blob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `questions-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      link.click();
+      showNotification('✓ Data exportována', 'success');
+    }
+
+    function importData() {
+      const input = document.getElementById('importFile');
+      input.click();
+      input.onchange = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const text = await file.text();
+        try {
+          const data = JSON.parse(text);
+          allQuestions = data.categories;          // Uložit do localStorage
+          localStorage.setItem('questionData', JSON.stringify(allQuestions));          loadCategory();
+          showNotification('✓ Data importována úspěšně', 'success');
+        } catch (error) {
+          showNotification('✗ Chyba при importu: neplatný JSON', 'error');
+        }
+      };
+    }
+
+    function resetAllData() {
+      if (!confirm('Opravdu chcete resetovat NA PŮVODNÍ DATA? Ztratíte všechny změny!')) return;
+      location.reload();
+    }
+
+    function showNotification(message, type) {
+      const notif = document.getElementById('notification');
+      notif.textContent = message;
+      notif.className = `notification show ${type}`;
+      setTimeout(() => notif.classList.remove('show'), 3000);
+    }
+
+    // Inicializace
+    loadData();
+  </script>
+</body>
+</html>

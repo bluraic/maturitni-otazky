@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Diagnostika - Maturitní otázky</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1e1e1e; color: #d4d4d4; }
+        h1 { color: #4ec9b0; }
+        .section { margin: 20px 0; padding: 15px; background: #252526; border-left: 4px solid #007acc; }
+        .success { color: #4ec9b0; }
+        .error { color: #f48771; }
+        .warning { color: #dcdcaa; }
+        pre { background: #1e1e1e; padding: 10px; overflow-x: auto; border-radius: 4px; }
+        button { background: #007acc; color: white; padding: 10px 20px; border: none; cursor: pointer; margin: 5px; border-radius: 4px; }
+        button:hover { background: #005a9e; }
+    </style>
+</head>
+<body>
+    <h1>🔍 DIAGNOSTIKA SYSTÉMU</h1>
+
+    <div class="section">
+        <h2>1️⃣ Kontrola localStorage</h2>
+        <button onclick="checkLocalStorage()">Kontrolovat localStorage</button>
+        <pre id="localStorageOutput"></pre>
+    </div>
+
+    <div class="section">
+        <h2>2️⃣ Kontrola load-questions.js</h2>
+        <button onclick="checkScriptLoaded()">Kontrolovat script</button>
+        <pre id="scriptOutput"></pre>
+    </div>
+
+    <div class="section">
+        <h2>3️⃣ Test načtení otázek</h2>
+        <button onclick="testLoadQuestions()">Testovat QuestionManager</button>
+        <pre id="questionOutput"></pre>
+    </div>
+
+    <div class="section">
+        <h2>4️⃣ Kontrola HTML struktury</h2>
+        <button onclick="checkHTMLStructure()">Kontrolovat HTML</button>
+        <pre id="htmlOutput"></pre>
+    </div>
+
+    <div class="section">
+        <h2>5️⃣ RESET a FILL localStorage</h2>
+        <button onclick="fillLocalStorage()">Naplnit localStorage demo daty</button>
+        <button onclick="clearLocalStorage()">Smazat localStorage</button>
+        <pre id="resetOutput"></pre>
+    </div>
+
+    <script src="load-questions.js"></script>
+    <script>
+        function log(id, text, type = 'normal') {
+            const elem = document.getElementById(id);
+            const color = type === 'success' ? 'green' : type === 'error' ? 'red' : 'white';
+            elem.innerHTML += `<span style="color: ${color};">${text}</span>\n`;
+        }
+
+        function checkLocalStorage() {
+            const output = document.getElementById('localStorageOutput');
+            output.innerHTML = '';
+            
+            const data = localStorage.getItem('questionData');
+            if (data) {
+                log('localStorageOutput', '✓ localStorage naplněn!', 'success');
+                log('localStorageOutput', '\nData v localStorage:');
+                try {
+                    const parsed = JSON.parse(data);
+                    log('localStorageOutput', JSON.stringify(parsed, null, 2));
+                } catch (e) {
+                    log('localStorageOutput', 'CHYBA: Neplatný JSON!', 'error');
+                }
+            } else {
+                log('localStorageOutput', '✗ localStorage JE PRÁZDNÝ!', 'error');
+                log('localStorageOutput', '\nNapravit: Klikněte na "Naplnit localStorage demo daty"');
+            }
+        }
+
+        function checkScriptLoaded() {
+            const output = document.getElementById('scriptOutput');
+            output.innerHTML = '';
+
+            if (window.QuestionManager) {
+                log('scriptOutput', '✓ QuestionManager je načten!', 'success');
+                log('scriptOutput', 'Třída: ' + window.QuestionManager.toString().substring(0, 100) + '...');
+            } else {
+                log('scriptOutput', '✗ QuestionManager NENÍ načten!', 'error');
+            }
+
+            if (window.questionManager) {
+                log('scriptOutput', '✓ Globální instance questionManager existuje', 'success');
+            } else {
+                log('scriptOutput', '✗ Globální instance NEEXISTUJE', 'error');
+            }
+        }
+
+        async function testLoadQuestions() {
+            const output = document.getElementById('questionOutput');
+            output.innerHTML = '';
+
+            try {
+                const manager = new QuestionManager();
+                log('questionOutput', 'Načítání otázek...');
+                await manager.loadQuestions();
+                
+                log('questionOutput', '✓ Otázky se úspěšně načetly!', 'success');
+                log('questionOutput', '\nDostupné kategorie:');
+                for (const [key, value] of Object.entries(manager.allQuestions)) {
+                    const count = value.questions?.length || 0;
+                    log('questionOutput', `  - ${key}: ${count} otázek`);
+                }
+            } catch (e) {
+                log('questionOutput', '✗ CHYBA: ' + e.message, 'error');
+                log('questionOutput', e.stack);
+            }
+        }
+
+        function checkHTMLStructure() {
+            const output = document.getElementById('htmlOutput');
+            output.innerHTML = '';
+
+            const sidebarUl = document.querySelector('.sidebar ul');
+            const container = document.querySelector('.questions-container');
+
+            log('htmlOutput', 'Hledám HTML elementy...\n');
+
+            if (sidebarUl) {
+                log('htmlOutput', '✓ .sidebar ul EXISTUJE', 'success');
+            } else {
+                log('htmlOutput', '✗ .sidebar ul NENALEZEN', 'error');
+                log('htmlOutput', '  (Tato stránka snad nemá sidebar)');
+            }
+
+            if (container) {
+                log('htmlOutput', '✓ .questions-container EXISTUJE', 'success');
+            } else {
+                log('htmlOutput', '✗ .questions-container NENALEZEN', 'error');
+            }
+
+            log('htmlOutput', '\nAktuální URL: ' + window.location.href);
+            log('htmlOutput', 'Třída <body>: ' + document.body.className);
+        }
+
+        function fillLocalStorage() {
+            const output = document.getElementById('resetOutput');
+            output.innerHTML = '';
+
+            const demoData = {
+                "cestina": {
+                    "title": "Čeština",
+                    "questions": [
+                        {
+                            "id": "q1",
+                            "title": "Jack Kerouac",
+                            "content": "<h3>Test data</h3><p>Toto je demo data. Je to vidět?</p>"
+                        }
+                    ]
+                },
+                "it-ve-verejne-sprave": {
+                    "title": "IT ve veřejné správě",
+                    "questions": [
+                        {
+                            "id": "q1",
+                            "title": "Test Question",
+                            "content": "<h3>Demo</h3><p>Pokud víte tento text, localStorage funguje!</p>"
+                        }
+                    ]
+                },
+                "informacni-a-komunikacni-technologie": {
+                    "title": "Informační a komunikační technologie",
+                    "questions": [
+                        {
+                            "id": "q1",
+                            "title": "Test IKT",
+                            "content": "<h3>Demo data</h3><p>localStorage je naplněn!</p>"
+                        }
+                    ]
+                }
+            };
+
+            localStorage.setItem('questionData', JSON.stringify(demoData));
+            log('resetOutput', '✓ localStorage NAPLNĚN demo daty!', 'success');
+            log('resetOutput', '\nNyní jděte na některou kategorii (cestina.html, it-ve-verejne-sprave.html)');
+            log('resetOutput', 'Měly by být vidět otázky!');
+            log('resetOutput', '\nMůžete také refreshnout tuto stránku');
+        }
+
+        function clearLocalStorage() {
+            const output = document.getElementById('resetOutput');
+            output.innerHTML = '';
+            localStorage.clear();
+            log('resetOutput', '✓ localStorage SMAZÁN', 'success');
+        }
+
+        // Auto-check na načtení stránky
+        window.addEventListener('load', () => {
+            console.log('=== DIAGNOSTIKA STRÁNKA NAČTENA ===');
+            checkScriptLoaded();
+            checkLocalStorage();
+            checkHTMLStructure();
+        });
+    </script>
+</body>
+</html>

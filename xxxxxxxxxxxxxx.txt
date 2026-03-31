@@ -1,0 +1,60 @@
+INFORMAČNÍ A KOMUNIKAČNÍ TECHNOLOGIE
+• Klasifikace sítí, topologie sítí
+• Sítě (ISDN, xDSL) a předchozí principy sítí
+• Zabezpečení počítačové sítě a diagnostika závad počítačové sítě
+• Pasivní síťové prvky a jejich využití
+• Síťový model ISO/OSI
+• Síťová architektura TCP/IP a jednotlivé protokoly
+• Aktivní síťové prvky a jejich využití
+• Návrh počítačové sítě LAN a její nastavení
+• Technologie sítí WLAN a WPAN
+• Mobilní sítě
+• Operační systém – základní definice, funkce, druhy operačních systémů
+• Principy přístupových metod, směrování
+• Konfigurace operačního systému a jeho ochrana před možnými hrozbami
+• Ethernet a jeho vývoj
+• IP adresace
+• Definice pojmů z oblasti webu (WWW, HTML, XHTML, …), domény, jejich
+problematika, domény nejvyšších řádů
+• Vysvětlení základní syntaxe HTML, JavaScriptu, PHP, CSS
+• Statické versus dynamické webové stránky, layout a základní tagy pro tvorbu
+webových stránek, tabulky v HTML
+• Parametry ovlivňující čitelnost textu, formátování textu pomocí CSS
+• Číselné soustavy v IT (početní operace, převody mezi soustavami), architektury
+počítačů
+• Paměťová média a zálohování dat, logické obvody
+• Vnitřní zařízení počítače a jejich parametry
+• Vstupní a výstupní zařízení počítače a jejich parametry
+• Algoritmus a způsoby jeho názorného zápisu, syntaxe, sémantika, klíčová slova
+(podmínky, cykly, údajové typy)
+• Základní pojmy a definice z oblasti objektového programování (třída, objekt), využití
+databáze z pohledu uživatelů GUI (Graphic User Interface)
+
+IT VE VEŘEJNÉ SPRÁVĚ
+• Absolutní a relativní adresování v Excelu, funkce a početní operace, jejich
+syntaxe a využití v Excelu
+• Grafy, souhrny, filtry, formátování a ověření dat v Excelu
+• Základní pojmy z oblasti databází (normální formy, relace, integritní omezení,
+datové typy)
+• Syntaxe příkazů v databázi a jejich rozdělení
+• Zpracování textu ve Wordu (hromadná korespondence, styly, počty slov, členění
+textu, zarážky tabulátoru, číslování stránek, vkládání symbolů, pevné mezery)
+• Prezentační software PowerPoint – nástroje a funkce, využití
+• Typy datových souborů a programů, převody datových formátů, komprese dat
+• Webový prohlížeč (bezpečná práce na internetu a jeho připojení, využití a
+instalace certifikátů a doplňků, zabezpečení webových prohlížečů)
+• Mezinárodní právo v ICT (specifika, subjekty, koncepce vztahu mezinárodního a
+vnitrostátního práva)
+• Právo v ICT se zaměřením na evropskou legislativu (základní nařízení a
+směrnice), instituce EU v oblasti trestního práva
+• Softwarové právo
+• Internetová reklama a problematika spamu, obchodování na internetu
+• Domény a doménové spory, obsah, zhotovení a hosting webových stránek
+• Kyberkriminalita a kybernetická bezpečnost
+• Bezpečnostní analýza (analýza rizik) informačního systému
+• Bezpečnost v informačních systémech
+• Elektronický podpis, certifikáty, časová razítka
+• Bezpečnost v síti Internet – bezpečnostní protokoly, virtuální privátní sítě,
+bezpečnost koncových zařízení
+• Kryptografie – princip, šifrovací algoritmy a jejich dělení, využití, kryptoanalýza
+• Internet věcí

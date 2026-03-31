@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test localStorage</title>
+    <style>
+        body { font-family: monospace; background: #1e1e1e; color: #d4d4d4; padding: 20px; }
+        pre { background: #2d2d2d; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        button { background: #0e639c; color: white; padding: 10px 20px; border: none; border-radius: 3px; cursor: pointer; margin: 5px; }
+        h2 { color: #4fc3f7; }
+        .success { color: #4caf50; }
+        .error { color: #ff5252; }
+        .info { color: #ffb74d; }
+    </style>
+</head>
+<body>
+    <h1>Test localStorage a load-questions.js</h1>
+    
+    <h2>Co je v localStorage?</h2>
+    <pre id="localStorage-content"></pre>
+    
+    <h2>Struktura otázek</h2>
+    <pre id="data-structure"></pre>
+    
+    <h2>Test kategoií</h2>
+    <div id="category-test"></div>
+    
+    <h2>🔧 Nástroje</h2>
+    <button onclick="clearLocalStorage()">Vymazat localStorage</button>
+    <button onclick="loadFromJson()">Načíst z questions.json do localStorage</button>
+    <button onclick="testLoadQuestions()">Spustit QuestionManager.loadQuestions()</button>
+    <button onclick="fillWithFallback()">Vyplnit fallback daty</button>
+    
+    <script>
+        async function showLocalStorage() {
+            const data = localStorage.getItem('questionData');
+            if (data) {
+                const parsed = JSON.parse(data);
+                document.getElementById('localStorage-content').innerText = 
+                    '✅ Nalezeno: ' + Object.keys(parsed).length + ' kategorií\n\n' + 
+                    JSON.stringify(parsed, null, 2);
+            } else {
+                document.getElementById('localStorage-content').innerText = '❌ localStorage je prázdné';
+            }
+        }
+
+        function showDataStructure() {
+            const data = localStorage.getItem('questionData');
+            if (!data) return;
+            
+            const parsed = JSON.parse(data);
+            let structure = '';
+            for (const [cat, details] of Object.entries(parsed)) {
+                const questions = details.questions || [];
+                structure += `${cat}:\n`;
+                structure += `  - title: ${details.title}\n`;
+                structure += `  - questions: ${questions.length}\n`;
+                if (questions.length > 0) {
+                    structure += `    Př: "${questions[0].title}"\n`;
+                }
+            }
+            document.getElementById('data-structure').innerText = structure;
+        }
+
+        async function testLoadQuestions() {
+            const script = document.createElement('script');
+            script.src = 'load-questions.js';
+            script.onload = async () => {
+                const manager = new QuestionManager();
+                await manager.loadQuestions();
+                let result = 'QuestionManager inicializován\n\n';
+                result += 'Kategorie: ' + Object.keys(manager.allQuestions).join(', ') + '\n\n';
+                for (const [cat, data] of Object.entries(manager.allQuestions)) {
+                    const qs = manager.getQuestionsByCategory(cat);
+                    result += `${cat}: ${qs.length} otázek\n`;
+                }
+                alert(result);
+            };
+            document.head.appendChild(script);
+        }
+
+        async function loadFromJson() {
+            try {
+                const response = await fetch('questions.json');
+                const data = await response.json();
+                localStorage.setItem('questionData', JSON.stringify(data.categories));
+                alert('Načteno z questions.json a uloženo do localStorage');
+                location.reload();
+            } catch (e) {
+                alert('Chyba: ' + e);
+            }
+        }
+
+        function fillWithFallback() {
+            const fallback = {
+                "cestina": {
+                    "title": "Čeština",
+                    "questions": [
+                        {"id":"q1","title":"Jack Kerouac","content":"<h3>O autorovi</h3><p>Cestovatel od Beat generation.</p>"},
+                        {"id":"q2","title":"William Styron","content":"<h3>O autorovi</h3><p>Prozaik, jižanská próza.</p>"}
+                    ]
+                },
+                "it-ve-verejne-sprave": {
+                    "title": "IT ve veřejné správě",
+                    "questions": [
+                        {"id":"q1","title":"Mezinárodní právo","content":"<h3>Základy</h3><p>Právo v ICT.</p>"}
+                    ]
+                },
+                "informacni-a-komunikacni-technologie": {
+                    "title": "Informační a komunikační technologie",
+                    "questions": [
+                        {"id":"q1","title":"xDSL technologie","content":"<h3>ADSL a VDSL</h3><p>DSL technologie.</p>"}
+                    ]
+                }
+            };
+            localStorage.setItem('questionData', JSON.stringify(fallback));
+            alert('Fallback data uložena do localStorage\nObnovte stránku a zkuste categoria.');
+        }
+
+        function clearLocalStorage() {
+            localStorage.clear();
+            alert('localStorage vymazáno');
+            location.reload();
+        }
+
+        window.onload = () => {
+            showLocalStorage();
+            showDataStructure();
+        };
+    </script>
+</body>
+</html>

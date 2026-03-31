@@ -1,0 +1,134 @@
+{
+  "categories": {
+    "cestina": {
+      "title": "Čeština",
+      "questions": [
+        {
+          "id": "q1",
+          "title": "Jack Kerouac",
+          "content": "<h3>O autorovi</h3><ul><li>Cestovatel, představitel <strong>Beat generation</strong> – USA po 2. světové válce</li><li>Témata svobody, cestování a spirituality</li><li>Experimentoval s drogy a svobodným životním stylem</li><li>Francouzsko-kanadské kořeny</li><li>1922 Lowell – 1969, komplikace s alkoholem</li></ul><h3>Významná díla</h3><h4>Na cestě</h4><ul><li>Příběhy z cestování po USA, hledání svobody a smyslu života</li><li>Hlavní postava – Sal Paradise (autorovo alter-ego)</li><li>Spontánní styl, inspirováno jazzem a obsahuje autobiografické prvky</li></ul>"
+        },
+        {
+          "id": "q2",
+          "title": "William Styron",
+          "content": "<h3>O autorovi</h3><ul><li>Prozaik, <strong>jižanská próza</strong></li><li>Gotika a neorealismus (poválečný)</li><li>Navazuje na tradici Williama Faulknera</li><li>Otázky viny, trestů a morálních dilemat</li><li>Virginia, USA</li></ul>"
+        }
+      ]
+    },
+    "it-ve-verejne-sprave": {
+      "title": "IT ve veřejné správě",
+      "questions": [
+        {
+          "id": "q1",
+          "title": "Mezinárodní právo v ICT",
+          "content": "<h3>Základní charakteristika</h3><p>Mezinárodní právo je soubor právních pravidel, která upravují vztahy mezi státy, mezinárodními organizacemi a dalšími subjekty v mezinárodním prostředí. V oblasti ICT (informačních a komunikačních technologií) má za cíl zajistit bezpečné, svobodné a spravedlivé fungování kyberprostoru.</p><h3>Specifika mezinárodního práva v ICT</h3><ul><li>📡 Bezhraniční působnost – internet nezná hranice.</li><li>🕵️ Anonymita – obtížné určení původce.</li><li>⚖️ Rozdílné právní úpravy – různé přístupy států.</li><li>🌍 Nutnost spolupráce – žádný stát není v kyberprostoru zcela soběstačný.</li></ul>"
+        },
+        {
+          "id": "q2",
+          "title": "Právo v ICT se zaměřením na evropskou legislativu",
+          "content": "<h3>Úvod – význam práva v ICT</h3><p>Právo v oblasti ICT patří mezi nejdynamičtěji se rozvíjející části moderního právního systému. S rozvojem digitálních služeb vznikají zcela nové právní otázky.</p><h3>Klíčové regulace EU</h3><p><strong>GDPR:</strong> Ochrana osobních údajů. <strong>NIS 2:</strong> Kybernetická bezpečnost. <strong>DSA:</strong> Odpovědnost platforem. <strong>DMA:</strong> Férová hospodářská soutěž. <strong>AI Act:</strong> Regulace umělé inteligence.</p>"
+        },
+        {
+          "id": "q3",
+          "title": "Softwarové právo",
+          "content": "<h3>1. Co je softwarové právo</h3><p>Softwarové právo je oblast práva, která se zabývá ochranou počítačových programů jako autorských děl, jejich licencováním, distribucí a právními důsledky jejich používání.</p><h3>2. Autorské právo</h3><p>Chrání konkrétní vyjádření softwaru, zejména zdrojový kód. Vzniká automaticky vytvořením díla. Autor má osobnostní a majetková práva.</p>"
+        },
+        {
+          "id": "q4",
+          "title": "Internetová reklama a problematika spamu, obchodování na internetu",
+          "content": "<h3>1. Úvod do tématu</h3><p>Internet je dnes klíčovým prostředím pro komunikaci, reklamu i nakupování. Součástí tématu je také spam, tedy nevyžádané zprávy, které mohou být nejen obtěžující, ale i nebezpečné.</p><p><strong>Antispamový zákon:</strong> Zakazuje šíření nevyžádaných obchodních sdělení bez předchozího souhlasu (opt-in). Každý e-mail musí obsahovat jasné označení, identifikaci odesílatele a možnost odhlášení.</p>"
+        },
+        {
+          "id": "q5",
+          "title": "Domény a doménové spory, obsah, zhotovení a hosting webových stránek",
+          "content": "<h3>1. Domény a jejich právní povaha</h3><p>Doména představuje jedinečný identifikátor v prostředí internetu, založený na systému DNS. Má ekonomickou hodnotu a lze ji obchodovat, ale není to vlastnictví – je to oprávnění k užívání.</p><h3>2. Doménové spory</h3><p>Vznikají, pokud je registrace nebo užívání domény v rozporu s právem (např. cybersquatting – záměrná registrace cizí značky). Řeší se prostřednictvím soudního řízení nebo rozhodčího řízení.</p>"
+        },
+        {
+          "id": "q6",
+          "title": "Bezpečnostní analýza (Analýza rizik)",
+          "content": "<h3>Základní charakteristika</h3><p>Bezpečnostní analýza je systematický proces, jehož cílem je identifikovat, vyhodnotit a minimalizovat rizika, která mohou ohrozit informační systém organizace.</p><h3>Základní principy (CIA Triáda)</h3><table border='1'><tr><th>Princip</th><th>Popis</th></tr><tr><td><strong>Důvěrnost</strong></td><td>Informace smí číst pouze oprávněné osoby.</td></tr><tr><td><strong>Integrita</strong></td><td>Data nesmí být neoprávněně změněna.</td></tr><tr><td><strong>Dostupnost</strong></td><td>Systém a data musí být k dispozici.</td></tr></table>"
+        },
+        {
+          "id": "q7",
+          "title": "Bezpečnost v informačních systémech",
+          "content": "<h3>Základní charakteristika</h3><p>Bezpečnost v informačních systémech není jednorázový produkt, ale nepřetržitý proces. Jde o soubor opatření, technologií a pravidel, která chrání integritu, dostupnost a důvěrnost aktiv.</p><h3>Typy hrozeb</h3><p><strong>Technické:</strong> Malware, DoS/DDoS, phishing. <strong>Lidské:</strong> Sociální inženýrství, chyby. <strong>Fyzické:</strong> Krádež, sabotáž.</p>"
+        },
+        {
+          "id": "q8",
+          "title": "Elektronický podpis, certifikáty a časová razítka",
+          "content": "<h3>Základní charakteristika</h3><p>Aby byla elektronická komunikace právně závazná a bezpečná, musí splňovat tři podmínky: identitu, integritu a nepopiratelnost. K tomu slouží kryptografické nástroje.</p><h3>1. Elektronický podpis</h3><p>Elektronický podpis je matematický výsledek operace nad obsahem dokumentu a soukromým klíčem.</p><h3>Typy podpisů podle nařízení eIDAS</h3><table border='1'><tr><th>Typ podpisu</th><th>Záruky</th></tr><tr><td><strong>Prostý</strong></td><td>Nízké</td></tr><tr><td><strong>Zaručený</strong></td><td>Vysoké</td></tr><tr><td><strong>Kvalifikovaný</strong></td><td>Nejvyšší - rovnocenný vlastnoručnímu</td></tr></table>"
+        },
+        {
+          "id": "q9",
+          "title": "Bezpečnost v síti Internet – bezpečnostní protokoly, VPN, bezpečnost zařízení",
+          "content": "<h3>1. Úvod do bezpečnosti internetu</h3><p>Internet nebyl původně vytvořen jako bezpečná infrastruktura, proto je ochrana dat dnes klíčová.</p><h3>2. Bezpečnostní protokoly</h3><p><strong>HTTPS/TLS:</strong> Šifrovaný kanál mezi prohlížečem a serverem. <strong>SSH:</strong> Bezpečná vzdálená správa. <strong>IPsec:</strong> Zabezpečení na síťové vrstvě.</p><h3>3. VPN – virtuální privátní síť</h3><p>VPN vytváří šifrovaný tunel přes veřejný internet. Skrývá skutečnou IP adresu a obsah komunikace.</p>"
+        },
+        {
+          "id": "q10",
+          "title": "Kryptografia – princip, šifrovací algoritmy a jejich dělení, využití, kryptoanalýza",
+          "content": "<h3>1. Vymezení pojmu kryptografia</h3><p>Kryptografia je vědní disciplína zabývající se ochranou informací pomocí matematických a algoritmických metod.</p><h3>2. Dělení kryptografie</h3><p><strong>Symetrická:</strong> Jeden klíč, velmi rychlá (AES, DES). <strong>Asymetrická:</strong> Dva klíče (RSA, ECC), řeší problém distribuce klíčů. <strong>Hashovací funkce:</strong> Jednosměrné (SHA-256).</p>"
+        },
+        {
+          "id": "q11",
+          "title": "Internet věcí",
+          "content": "<h3>1. Úvod – vymezení pojmu Internet věcí</h3><p>Internet věcí (IoT) představuje koncept propojení fyzických zařízení prostřednictvím sítě. Zařízení jsou vybavena senzory, výpočetními jednotkami a komunikačními moduly.</p><h3>3. Oblasti využití</h3><p>Chytrá domácnost, průmyslové IoT, zdravotnictví, chytrá města.</p><h3>4. Bezpečnostní rizika</h3><p>Default hesla, chybějící aktualizace, nezašifrovaný přenos. IoT zařízení se často stávají součástí botnetů.</p>"
+        }
+      ]
+    },
+    "informacni-a-komunikacni-technologie": {
+      "title": "Informační a komunikační technologie",
+      "questions": [
+        {
+          "id": "q1",
+          "title": "Technologie xDSL (ADSL a VDSL)",
+          "content": "<h3>1. Úvod</h3><p><strong>xDSL</strong> = souhrnný název pro technologie, které využívají běžnou telefonní linku (měděný pár) k přenosu dat.</p><h3>3. ADSL (Asymmetric DSL)</h3><p>Asymetrická DSL – rychlost stahování (download) je vyšší než rychlost odesílání (upload). Vhodné pro domácí uživatele. Typické rychlosti: Download až 24 Mbit/s, Upload až 3,5 Mbit/s.</p><h3>4. VDSL (Very High Speed DSL)</h3><p>Vyšší generace DSL, mnohem rychlejší než ADSL. Typické rychlosti: Download až 100 Mbit/s, Upload až 50 Mbit/s.</p>"
+        },
+        {
+          "id": "q2",
+          "title": "Počítačová síť - základní pojmy a definice. Topologie sítí.",
+          "content": "<h3>Počítačová síť – základní pojmy</h3><p><strong>Počítačová síť:</strong> Systém, který propojuje dvě nebo více výpočetních zařízení, aby mohla sdílet data, služby a zdroje.</p><h3>Dělení počítačových sítí</h3><p><strong>Podle rozsahu:</strong> LAN (lokální), MAN (městská), WAN (celosvětová).<strong>Podle postavení uzlů:</strong> Klient-server, Peer-to-Peer (P2P).</p><h3>Topologie počítačových sítí</h3><ul><li><strong>BUS (sběrnice):</strong> Všechna zařízení připojena k jednomu kabelu.</li><li><strong>RING (kruh):</strong> Zařízení propojena se dvěma sousedy.</li><li><strong>STAR (hvězda):</strong> Vše připojeno do centrálního prvku (switch). Nejčastější v LAN.</li><li><strong>TREE (strom):</strong> Hierarchická struktura.</li><li><strong>MESH:</strong> Každý uzel může mít spojení s více sousedy.</li></ul>"
+        },
+        {
+          "id": "q3",
+          "title": "Mobilní sítě",
+          "content": "<h3>1. Co jsou mobilní sítě?</h3><p>Mobilní síť je bezdrátová komunikační síť, která umožňuje přenos hlasu, textu a dat mezi mobilními zařízeními.</p><h3>2. Generace mobilních sítí</h3><table border='1'><tr><th>Generace</th><th>Technologie</th><th>Funkce</th><th>Rychlost</th></tr><tr><td>1G</td><td>AMPS</td><td>Analogový hlas</td><td>kb/s</td></tr><tr><td>2G</td><td>GSM, CDMA</td><td>Digitální hlas, SMS</td><td>kb/s</td></tr><tr><td>3G</td><td>UMTS, HSPA</td><td>Internet, videohovory</td><td>Mb/s</td></tr><tr><td>4G</td><td>LTE</td><td>Stream, VoIP, hry</td><td>100+ Mb/s</td></tr><tr><td>5G</td><td>mmWave, MIMO</td><td>IoT, AR/VR</td><td>Gb/s</td></tr></table>"
+        },
+        {
+          "id": "q4",
+          "title": "Bezdrátové technologie, Wi-Fi, Bluetooth",
+          "content": "<h3>Wi-Fi technologie</h3><p>Wi-Fi (Wireless Fidelity) umožňuje bezdrátové připojení k síti. Pracuje v pásmech 2,4 GHz a 5 GHz, nově i 6 GHz (Wi-Fi 6E).</p><p><strong>Standardy IEEE 802.11:</strong></p><ul><li>802.11n – až 600 Mbps</li><li>802.11ac – až 1300 Mbps</li><li>802.11ax (Wi-Fi 6) – až 10 Gbps</li></ul><h3>Bluetooth technologie</h3><p>Technologie pro krátké vzdálenosti (do 10 metrů). Využívá pásmo 2,4 GHz. Typické použití: sluchátka, klávesnice, IoT zařízení.</p>"
+        },
+        {
+          "id": "q5",
+          "title": "Adresace v síti (MAC, IP)",
+          "content": "<h3>1. Úvod do adresace</h3><p>Umožňuje jednoznačně identifikovat zařízení a směrovat data.</p><h3>2. Fyzická (MAC) adresa</h3><p>Unikátní identifikátor síťového zařízení na linkové vrstvě. Přidělována výrobcem, je statická a používá se v LAN.</p><h3>3. Logická (IP) adresa</h3><p><strong>IPv4:</strong> 32 bitů (192.168.1.10). <strong>IPv6:</strong> 128 bitů (2001:db8::1). Subnetting a masky sítě (CIDR: /24).</p>"
+        },
+        {
+          "id": "q6",
+          "title": "Směrování (Routing)",
+          "content": "<h3>1. Co je směrování?</h3><p>Proces rozhodování, kudy budou data (pakety) putovat z jedné sítě do druhé. Probíhá na 3. vrstvě modelu OSI.</p><h3>4. Typy směrování</h3><ul><li><strong>Statické směrování:</strong> Nastavuje administrátor ručně.</li><li><strong>Dynamické směrování:</strong> Routery si vyměňují informace automaticky.</li></ul><h3>5. Směrovací protokoly</h3><ul><li><strong>RIP:</strong> Jednoduchý, metrika podle počtu hopů.</li><li><strong>OSPF:</strong> Moderní, algoritmus nejkratší cesty.</li><li><strong>BGP:</strong> Pro internet mezi autonomními systémy.</li></ul>"
+        },
+        {
+          "id": "q7",
+          "title": "Definice pojmů z oblasti webu (WWW, HTML, XHTML, domény, DNS, TLD)",
+          "content": "<h3>1. WWW (World Wide Web)</h3><p>Služba internetu, která umožňuje zobrazování a propojování hypertextových dokumentů.</p><h3>2. HTML (HyperText Markup Language)</h3><p>HTML je standardizovaný <strong>značkovací jazyk</strong>. Definuje strukturu a sémantiku webového dokumentu pomocí tagů.</p><h3>4. Domény a DNS</h3><p>Doména je lidsky čitelný název pro IP adresu serveru. DNS funguje jako \"telefonní seznam internetu\".</p><h3>5. TLD — domény nejvyšší úrovně</h3><p><strong>ccTLD</strong> (národní) - .cz, .sk, .de. <strong>gTLD</strong> (generické) - .com, .org, .net. <strong>nový gTLD</strong> - .shop, .app, .blog.</p>"
+        },
+        {
+          "id": "q8",
+          "title": "Vysvětlení základní syntaxe HTML, JavaScriptu, PHP, CSS",
+          "content": "<h3>1. HTML – HyperText Markup Language</h3><p>HTML je značkovací jazyk. Jeho syntaxe je založena na <strong>tagy</strong> (značkách), které jsou obvykle párové.</p><h3>2. CSS – Cascading Style Sheets</h3><p>CSS používá systém <strong>selektorů</strong> a <strong>vlastností</strong>. Typy selektorů: Typový, Třída, ID.</p><h3>3. JavaScript (JS)</h3><p>JavaScript je programovací jazyk, který běží v prohlížeči. Umožňuje manipulovat s obsahem stránky bez jejího znovunačtení.</p><h3>4. PHP – Hypertext Preprocessor</h3><p>PHP je skriptovací jazyk, který běží <strong>na serveru</strong>. Proměnné vždy začínají symbolem <strong>$</strong>.</p>"
+        },
+        {
+          "id": "q9",
+          "title": "Statické versus dynamické webové stránky, layout a tagy, tabulky v HTML",
+          "content": "<h3>1. Statické a dynamické webové stránky</h3><p><strong>Statické weby:</strong> Pevný HTML obsah, rychlé, levné. <strong>Dynamické weby:</strong> Generováno z databáze, WordPress, e-shopy.</p><table border='1'><tr><th>Kritérium</th><th>Statický web</th><th>Dynamický web</th></tr><tr><td>Obsah</td><td>Pevný (v souboru)</td><td>Generovaný (z databáze)</td></tr><tr><td>Interaktivita</td><td>Minimální</td><td>Vysoká</td></tr></table><h3>2. Layout webu a sémantika</h3><p><strong>Sémantické tagy:</strong> &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;, &lt;article&gt;, &lt;footer&gt;.</p>"
+        },
+        {
+          "id": "q10",
+          "title": "Parametry ovlivňující čitelnost textu, formátování textu pomocí CSS",
+          "content": "<h3>1. Co je čitelnost textu (Readability)</h3><p>Čitelnost je míra toho, jak snadno a pohodlně dokáže čtenář text přečíst a porozumět mu.</p><h3>2. Hlavní typografické parametry v CSS</h3><p><strong>Font-size:</strong> 16-18px. <strong>Line-height (Řádkování):</strong> 1.5 až 1.8. <strong>Max-width (Délka řádku):</strong> 50-75 znaků. <strong>Kontrast:</strong> 4.5:1 (WCAG).</p><h3>5. Jednotky: Absolutní vs. Relativní</h3><p><strong>px:</strong> Absolutní (nevhodné pro přístupnost). <strong>rem/em:</strong> Relativní (ideální pro fonty). <strong>%/vw/vh:</strong> Relativní (responzivní layouty).</p>"
+        }
+      ]
+    }
+  }
+}
