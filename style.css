@@ -22,10 +22,12 @@ h1, h2 {
 
 nav {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
     gap: 20px;
     padding: 40px 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 /* sidebar for question navigation */
@@ -45,6 +47,17 @@ nav {
     list-style: none;
     margin: 0;
     padding: 0;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Hide scrollbar but keep scrolling functional */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+/* Chrome, Safari and Opera */
+.sidebar ul::-webkit-scrollbar {
+    display: none;
 }
 
 .sidebar li {
@@ -62,6 +75,39 @@ nav {
 .sidebar a:hover,
 .sidebar a.active {
     background: rgba(0,255,0,0.1);
+}
+
+.question-btn {
+    width: 100%;
+    text-align: left;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    color: #adef8b;
+    cursor: pointer;
+    border-left: 3px solid #444;
+    transition: all 0.2s;
+    font-family: inherit;
+    font-size: 0.95em;
+}
+
+.question-btn:hover {
+    background: rgba(0,255,0,0.1);
+    border-left-color: #adef8b;
+}
+
+.question-btn.active {
+    background: rgba(0,255,0,0.2);
+    border-left-color: #adef8b;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .content {

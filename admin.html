@@ -140,6 +140,9 @@
     </header>
 
     <div class="toolbar">
+      <button id="authStatus" style="background: #e74c3c; cursor: pointer;" onclick="showPasswordPrompt()">🔒 Uzamčeno</button>
+      <button style="display:none;" id="logoutBtn" class="danger" onclick="logout()">Odhlásit se</button>
+      <span style="margin-left: auto;"></span>
       <button class="success" onclick="exportData()">Exportovat data</button>
       <button onclick="importData()">Importovat data</button>
       <button class="danger" onclick="resetAllData()">Resetovat na původní</button>
@@ -214,15 +217,106 @@
     let allQuestions = {};
     let currentCategory = 'cestina';
     let selectedQuestionId = null;
+    let isAuthenticated = false;
+
+    // SIMPLE PASSWORD PROTECTION
+    const CORRECT_PASSWORD_HASH = '8d969eef6ecad3c29a3a873fba5fe8c4'; // MD5 hash of "maturity"
+    
+    async function hashPassword(password) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(password);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function showPasswordPrompt() {
+      if (isAuthenticated) return;
+      const password = prompt('🔐 Tento admin panel je chráněn heslem.\n\nZadejte heslo pro přístup:');
+      if (password === null) return; // User clicked Cancel
+      
+      // Simple check - password is "maturity"
+      if (password === 'maturity') {
+        isAuthenticated = true;
+        localStorage.setItem('_adminAuth', 'true');
+        updateAuthStatus();
+        showNotification('✓ Přihlášeno - admin oprávnění povolena', 'success');
+      } else {
+        showNotification('✗ Nesprávné heslo', 'error');
+      }
+    }
+
+    function logout() {
+      isAuthenticated = false;
+      localStorage.removeItem('_adminAuth');
+      updateAuthStatus();
+      showNotification('✓ Odhlášeni - admin oprávnění zrušena', 'success');
+    }
+
+    function updateAuthStatus() {
+      const locked = document.getElementById('authStatus');
+      const logoutBtn = document.getElementById('logoutBtn');
+      if (locked) {
+        locked.textContent = isAuthenticated ? '🔓 Odemčeno' : '🔒 Uzamčeno';
+        locked.style.color = isAuthenticated ? '#27ae60' : '#e74c3c';
+      }
+      if (logoutBtn) {
+        logoutBtn.style.display = isAuthenticated ? 'inline-block' : 'none';
+      }
+    }
+
+    function requireAuth() {
+      if (!isAuthenticated) {
+        showNotification('✗ Nejdříve se musíte přihlásit', 'error');
+        showPasswordPrompt();
+        return false;
+      }
+      return true;
+    }
+
+    // HEALTH CHECK
+    console.log('=== ADMIN PANEL HEALTH CHECK ===');
+    try {
+      localStorage.setItem('_test', 'test');
+      localStorage.removeItem('_test');
+      console.log('✓ localStorage je dostupný');
+    } catch (e) {
+      console.error('✗ localStorage NENÍ dostupný:', e);
+    }
 
     async function loadData() {
+      console.log('🟢 loadData START');
       try {
+        // Pokus 1: Načíst z localStorage (změny z admin panelu)
+        const storedData = localStorage.getItem('questionData');
+        console.log('   localStorage.getItem("questionData"):', storedData ? `${storedData.length} bytes` : 'NULL');
+        
+        if (storedData) {
+          allQuestions = JSON.parse(storedData);
+          console.log('   ✓ Data načtena z localStorage, kategorie:', Object.keys(allQuestions));
+          console.log('   ✓ IT ve veřejné správě má:', allQuestions['it-ve-verejne-sprave']?.questions?.length, 'questions');
+          loadCategory();
+          showNotification('✓ Data načtena z lokálního úložiště', 'success');
+          console.log('🟢 loadData END (localStorage)');
+          return;
+        }
+
+        // Pokus 2: Načíst z questions.json
+        console.log('   ❌ localStorage je prázdné, načítám z questions.json...');
         const response = await fetch('questions.json');
-        allQuestions = (await response.json()).categories;
+        const data = await response.json();
+        allQuestions = data.categories;
+        console.log('   ✓ Data načtena z questions.json, kategorie:', Object.keys(allQuestions));
+        console.log('   ✓ IT ve veřejné správě má:', allQuestions['it-ve-verejne-sprave']?.questions?.length, 'questions');
+        
         localStorage.setItem('questionData', JSON.stringify(allQuestions));
+        console.log('   ✓ Data uložena do localStorage');
+        
         loadCategory();
-        showNotification('✓ Data načtena úspěšně', 'success');
+        showNotification('✓ Data načtena z questions.json a uložena do lokálního úložiště', 'success');
+        console.log('🟢 loadData END (questions.json)');
       } catch (error) {
+        console.error('✗ Chyba při načítání dat:', error);
         showNotification('✗ Chyba při načítání dat', 'error');
       }
     }
@@ -270,6 +364,9 @@
     }
 
     function saveQuestion() {
+      console.log('🟡 saveQuestion START');
+      if (!requireAuth()) return;
+      
       if (!selectedQuestionId) {
         showNotification('✗ Vyberte otázku k úpravě', 'error');
         return;
@@ -289,9 +386,11 @@
 
       // Uložit do localStorage
       localStorage.setItem('questionData', JSON.stringify(allQuestions));
+      console.log('   ✓ Uloženo do localStorage');
 
       showNotification(`✓ Otázka "${title}" uložena`, 'success');
       refreshQuestionsList();
+      console.log('🟡 saveQuestion END');
     }
 
     function deleteCurrentQuestion() {
@@ -300,6 +399,7 @@
     }
 
     function deleteQuestion(questionId) {
+      if (!requireAuth()) return;
       if (!confirm('Opravdu chcete smazat tuto otázku?')) return;
 
       const questions = allQuestions[currentCategory].questions;
@@ -319,8 +419,16 @@
     }
 
     function addNewQuestion() {
+      if (!requireAuth()) return;
+      
+      console.log('🔵 addNewQuestion START');
+      console.log('   currentCategory:', currentCategory);
+      console.log('   allQuestions keys:', Object.keys(allQuestions));
+      
       const title = document.getElementById('newQTitle').value.trim();
       const content = document.getElementById('newQContent').value.trim();
+      console.log('   title:', title);
+      console.log('   content length:', content.length);
 
       if (!title || !content) {
         showNotification('✗ Vyplňte všechna pole', 'error');
@@ -328,19 +436,30 @@
       }
 
       const questions = allQuestions[currentCategory].questions;
+      console.log('   questions before push:', questions.length);
+      
       const maxId = Math.max(...questions.map(q => parseInt(q.id.slice(1))), 0);
       const newId = `q${maxId + 1}`;
+      console.log('   new ID:', newId);
 
       questions.push({ id: newId, title, content });
+      console.log('   questions after push:', questions.length);
       
       // Uložit do localStorage
-      localStorage.setItem('questionData', JSON.stringify(allQuestions));
+      const jsonData = JSON.stringify(allQuestions);
+      console.log('   JSON size:', jsonData.length);
+      localStorage.setItem('questionData', jsonData);
+      
+      const stored = localStorage.getItem('questionData');
+      console.log('   ✓ Verified localStorage saved:', stored ? 'YES' : 'NO');
+      console.log('   localStorage contains:', JSON.parse(stored)[currentCategory].questions.length, 'questions in', currentCategory);
 
       showNotification(`✓ Otázka "${title}" přidána`, 'success');
 
       document.getElementById('newQTitle').value = '';
       document.getElementById('newQContent').value = '';
       refreshQuestionsList();
+      console.log('🔵 addNewQuestion END');
     }
 
     function clearForm() {
@@ -351,6 +470,8 @@
     }
 
     function exportData() {
+      if (!requireAuth()) return;
+      
       const dataStr = JSON.stringify({ categories: allQuestions }, null, 2);
       const blob = new Blob([dataStr], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
@@ -362,6 +483,8 @@
     }
 
     function importData() {
+      if (!requireAuth()) return;
+      
       const input = document.getElementById('importFile');
       input.click();
       input.onchange = async (e) => {
@@ -371,17 +494,23 @@
         const text = await file.text();
         try {
           const data = JSON.parse(text);
-          allQuestions = data.categories;          // Uložit do localStorage
-          localStorage.setItem('questionData', JSON.stringify(allQuestions));          loadCategory();
+          allQuestions = data.categories;
+          // Uložit do localStorage
+          localStorage.setItem('questionData', JSON.stringify(allQuestions));
+          loadCategory();
+          refreshQuestionsList();
           showNotification('✓ Data importována úspěšně', 'success');
         } catch (error) {
-          showNotification('✗ Chyba при importu: neplatný JSON', 'error');
+          showNotification('✗ Chyba při importu: neplatný JSON', 'error');
         }
       };
     }
 
     function resetAllData() {
+      if (!requireAuth()) return;
+      
       if (!confirm('Opravdu chcete resetovat NA PŮVODNÍ DATA? Ztratíte všechny změny!')) return;
+      localStorage.removeItem('questionData');
       location.reload();
     }
 
@@ -393,7 +522,22 @@
     }
 
     // Inicializace
-    loadData();
+    window.addEventListener('load', () => {
+      updateAuthStatus();
+      
+      // Check if user was previously authenticated in this session
+      if (localStorage.getItem('_adminAuth') === 'true') {
+        isAuthenticated = true;
+        updateAuthStatus();
+      }
+      
+      loadData();
+      
+      // Show password prompt on startup if not authenticated
+      if (!isAuthenticated) {
+        setTimeout(() => showPasswordPrompt(), 500);
+      }
+    });
   </script>
 </body>
 </html>

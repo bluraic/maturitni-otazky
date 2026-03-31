@@ -150,58 +150,76 @@ class QuestionManager {
     container.innerHTML = '';
     console.log(`   ✓ Očistil jsem HTML`);
 
-    // Vytvořit položky v sidebaru
+    // Vytvořit tlačítka v sidebaru
     questions.forEach((q, index) => {
-      const li = document.createElement('li');
-      const link = document.createElement('a');
-      link.href = '#';
-      link.setAttribute('data-question', q.id);
-      if (index === 0) link.classList.add('active');
-      link.textContent = `${q.id.toUpperCase()} – ${q.title}`;
-      li.appendChild(link);
-      sidebarList.appendChild(li);
+      const button = document.createElement('button');
+      button.id = `btn-${q.id}`;
+      button.className = 'question-btn' + (index === 0 ? ' active' : '');
+      button.textContent = `${q.id.toUpperCase()} – ${q.title}`;
+      button.style.width = '100%';
+      button.style.textAlign = 'left';
+      button.style.padding = '12px';
+      button.style.border = 'none';
+      button.style.background = index === 0 ? 'rgba(0,255,0,0.2)' : 'transparent';
+      button.style.color = '#adef8b';
+      button.style.cursor = 'pointer';
+      button.style.borderLeft = (index === 0 ? '3px' : '3px') + ' solid ' + (index === 0 ? '#adef8b' : '#444');
+      button.style.transition = 'all 0.2s';
+      button.onclick = () => this.switchQuestion(q.id);
+      sidebarList.appendChild(button);
     });
 
-    console.log(`   ✓ Vytvořil ${questions.length} položek v sidebaru`);
+    console.log(`   ✓ Vytvořil ${questions.length} tlačítek v sidebaru`);
 
     // Vytvořit sekce s otázkami
     questions.forEach((q, index) => {
       const section = document.createElement('section');
-      section.id = q.id;
+      section.id = `question-${q.id}`;
       section.className = 'question';
-      section.style.display = index === 0 ? '' : 'none';
+      section.style.display = index === 0 ? 'block' : 'none';
+      section.style.animation = 'fadeIn 0.3s';
       section.innerHTML = `<h2>${q.title}</h2>${q.content}`;
       container.appendChild(section);
     });
 
     console.log(`   ✓ Vytvořil ${questions.length} sekcí v containeru`);
-
-    // Připojit event listenery
-    this.attachEventListeners();
     console.log(`🎨 === RENDER QUESTIONS OK ===\n`);
   }
 
   /**
-   * Připojí event listenery na otázky
+   * Přepne na danou otázku
+   */
+  switchQuestion(questionId) {
+    console.log(`🔄 switchQuestion: ${questionId}`);
+    
+    // Skrýt všechny sekce
+    const sections = document.querySelectorAll('.question');
+    sections.forEach(sec => {
+      sec.style.display = 'none';
+    });
+    
+    // Zobrazit vybranou sekci
+    const targetSection = document.querySelector(`#question-${questionId}`);
+    if (targetSection) {
+      targetSection.style.display = 'block';
+      console.log(`   ✓ Zobrazena sekce: #question-${questionId}`);
+    }
+    
+    // Zmenit active stav tlačítek
+    const buttons = document.querySelectorAll('.question-btn');
+    buttons.forEach(btn => {
+      const isActive = btn.id === `btn-${questionId}`;
+      btn.classList.toggle('active', isActive);
+      btn.style.background = isActive ? 'rgba(0,255,0,0.2)' : 'transparent';
+      btn.style.borderLeftColor = isActive ? '#adef8b' : '#444';
+    });
+  }
+
+  /**
+   * Připojí event listenery na otázky (legacy - už se nepoužívá s novým systémem)
    */
   attachEventListeners() {
-    const links = document.querySelectorAll('.sidebar a[data-question]');
-    const sections = document.querySelectorAll('.question');
-
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const target = link.getAttribute('data-question');
-
-        // Skrýt všechny sekce a odebrat active
-        sections.forEach(sec => {
-          sec.style.display = sec.id === target ? '' : 'none';
-        });
-
-        links.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-      });
-    });
+    // Nový systém používá onclick na tlačítka, není potřeba event listeners
   }
 
   /**
@@ -293,7 +311,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Mapování tříd na kategorie
   const categoryMap = {
     'cestina': 'cestina',
-    'it-verejne-sprave': 'it-ve-verejne-sprave',
+    'it-ve-verejne-sprave': 'it-ve-verejne-sprave',
     'ikt': 'informacni-a-komunikacni-technologie'
   };
 
