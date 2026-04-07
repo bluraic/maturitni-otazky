@@ -39,7 +39,8 @@ nav {
     height: 100vh;
     background: #111;
     border-right: 1px solid #222;
-    padding-top: 60px; /* account for header if needed */
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
 }
 
@@ -47,7 +48,7 @@ nav {
     list-style: none;
     margin: 0;
     padding: 0;
-    height: calc(100vh - 60px);
+    flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
     /* Hide scrollbar but keep scrolling functional */
