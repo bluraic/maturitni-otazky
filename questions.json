@@ -18,56 +18,236 @@
     "it-ve-verejne-sprave": {
       "title": "IT ve veřejné správě",
       "questions": [
-        {"id": "q1", "title": "Absolutní a relativní adresování v Excelu, funkce a početní operace", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q2", "title": "Grafy, souhrny, filtry, formátování a ověření dat v Excelu", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q3", "title": "Základní pojmy z oblasti databází", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q4", "title": "Syntaxe příkazů v databázi a jejich rozdělení", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q5", "title": "Zpracování textu ve Wordu", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q6", "title": "Prezentační software PowerPoint – nástroje a funkce", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q7", "title": "Typy datových souborů a programů, převody datových formátů", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q8", "title": "Webový prohlížeč (bezpečná práce na internetu)", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q9", "title": "Mezinárodní právo v ICT", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q10", "title": "Právo v ICT se zaměřením na evropskou legislativu", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q11", "title": "Softwarové právo", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q12", "title": "Internetová reklama a problematika spamu", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q13", "title": "Domény a doménové spory", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q14", "title": "Kyberkriminalita a kybernetická bezpečnost", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q15", "title": "Bezpečnostní analýza (analýza rizik) informačního systému", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q16", "title": "Bezpečnost v informačních systémech", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q17", "title": "Elektronický podpis, certifikáty, časová razítka", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q18", "title": "Bezpečnost v síti Internet – bezpečnostní protokoly", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q19", "title": "Kryptografia – princip, šifrovací algoritmy a jejich dělení", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q20", "title": "Internet věcí", "content": "<p>Obsah bude přidán později.</p>"}
+        {
+          "id": "q1",
+          "title": "Absolutní a relativní adresování v Excelu, funkce a početní operace",
+          "content": "<h1>Absolutní a relativní adresování v Excelu</h1>\n    <p>Absolutní a relativní adresování je klíčovým konceptem pro efektivní práci s vzorci v Excelu. Umožňuje automatizovat výpočty a usnadňuje kopírování vzorců napříč tabulkami.</p>\n\n    <h2>1. Relativní adresování (výchozí)</h2>\n    <p><strong>Zápis:</strong> <code>A1</code></p>\n    <ul>\n        <li><strong>Chování:</strong> Při kopírování vzorce se odkaz automaticky mění podle toho, kam vzorec zkopírujete.</li>\n        <li><strong>Použití:</strong> Pokud potřebujete sečíst řádek 1 a následně stejný výpočet pro řádek 2, 3 atd. (např. <code>=A1*B1</code>).</li>\n        <li><strong>Příklad:</strong> Pokud je v buňce C1 vzorec <code>=A1+B1</code> a zkopírujete ho do buňky C2, vzorec se změní na <code>=A2+B2</code>.</li>\n    </ul>\n\n    <h2>2. Absolutní adresování</h2>\n    <p><strong>Zápis:</strong> <code>$A$1</code> (pomocí znaku dolaru <code>$</code>)</p>\n    <ul>\n        <li><strong>Chování:</strong> Při kopírování vzorce se odkaz na buňku <strong>nemění</strong>. Odkazuje se stále na stejnou, \"zamčenou\" buňku.</li>\n        <li><strong>Klávesová zkratka:</strong> Pro rychlou změnu mezi relativním a absolutním odkazem použijte klávesu <span class=\"shortcut\">F4</span> při editaci vzorce.</li>\n        <li><strong>Použití:</strong> Fixace konstanty, například sazba DPH, měnový kurz nebo sleva.</li>\n    </ul>\n\n    <h2>3. Smíšené adresování</h2>\n    <p><strong>Zápis:</strong> <code>$A1</code> (fixovaný sloupec) nebo <code>A$1</code> (fixovaný řádek).</p>\n    <p><strong>Chování:</strong> Fixuje buď pouze sloupec, nebo pouze řádek.</p>\n\n    <h2>4. Početní operace v Excelu</h2>\n    <p>Základní operace se zadávají přímo do buněk a vždy začínají rovnítkem (<code>=</code>).</p>\n    <table>\n        <thead>\n            <tr>\n                <th>Operace</th>\n                <th>Vzorec</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr>\n                <td>Sčítání</td>\n                <td><code>=A1 + B1</code></td>\n            </tr>\n            <tr>\n                <td>Odčítání</td>\n                <td><code>=A1 - B1</code></td>\n            </tr>\n            <tr>\n                <td>Násobení</td>\n                <td><code>=A1 * B1</code></td>\n            </tr>\n            <tr>\n                <td>Dělení</td>\n                <td><code>=A1 / B1</code></td>\n            </tr>\n        </tbody>\n    </table>\n\n    <h2>5. Základní funkce</h2>\n    <p>Funkce jsou předdefinované vzorce. Nejčastěji používané jsou:</p>\n    <ul>\n        <li><code>=SUMA(oblast)</code>: Součet hodnot v zadaném rozsahu.</li>\n        <li><code>=PRŮMĚR(oblast)</code>: Vypočítá aritmetický průměr.</li>\n        <li><code>=POČET(oblast)</code>: Spočítá buňky obsahující čísla.</li>\n        <li><code>=COUNTIF(oblast; kritérium)</code>: Počítá buňky na základě podmínky (např. kolikrát se vyskytuje \"ANO\").</li>\n        <li><code>=SVYHLEDAT(...)</code>: Vyhledávání hodnot v tabulce.</li>\n    </ul>\n\n    <div class=\"example-box\">\n        <h3>Praktický příklad použití</h3>\n        <p>Máte cenu zboží v buňce <strong>A2</strong> a chcete vypočítat DPH (21 %), které máte uloženo v buňce <code>$E$1</code>.</p>\n        <p>Vzorec v buňce <strong>B2</strong> bude: <code>=A2 * $E$1</code></p>\n        <p>Když vzorec natáhnete dolů pro další zboží, <code>A2</code> se změní na <code>A3</code>, <code>A4</code> (relativní), ale <code>$E$1</code> zůstane stejné (absolutní).</p>\n    </div>\n</div>"
+        },
+        {
+          "id": "q2",
+          "title": "Grafy, souhrny, filtry, formátování a ověření dat v Excelu",
+          "content": "<div class=\"container\">\n    <h1>Pokročilé nástroje a analýza dat v Excelu</h1>\n    <p>Excel nabízí širokou škálu nástrojů pro vizualizaci, třídění a hloubkovou analýzu dat, které zefektivňují každodenní práci s tabulkami.</p>\n\n    <h2>1. Grafy v Excelu</h2>\n    \n\n[Image of different types of charts in Excel]\n\n    <p>Grafy slouží k vizuální reprezentaci dat, což usnadňuje identifikaci trendů a odchylek.</p>\n    <ul>\n        <li><strong>Vytvoření:</strong> Vyberte data a přejděte na <code>Vložení > Doporučené grafy</code>.</li>\n        <li><strong>Typy:</strong> Excel nabízí sloupcové, čárové, koláčové, bodové a další grafy.</li>\n        <li><strong>Úpravy:</strong> Kliknutím na graf a následně na prvky grafu (osy, popisky) lze měnit jejich formátování, barvy a styl.</li>\n        <li><strong>Dynamická data:</strong> Nová data lze do grafu přidat tažením za úchyty zdrojových dat nebo přes funkci \"Vybrat data\".</li>\n    </ul>\n\n    <h2>2. Souhrny a analýza dat</h2>\n    \n    <ul>\n        <li><strong>Mezisoučty:</strong> Na kartě <code>Data > Mezisoučet</code> lze automaticky vkládat součty pro vnořené sloupce (data musí být seřazená).</li>\n        <li><strong>Kontingenční tabulky:</strong> Nejefektivnější nástroj pro sumarizaci velkého množství dat (karta <code>Vložení > Kontingenční tabulka</code>).</li>\n        <li><strong>Analytické nástroje:</strong> Doplňky pro pokročilou statistickou a inženýrskou analýzu (<code>Soubor > Možnosti > Doplňky</code>).</li>\n    </ul>\n\n    <h2>3. Filtry a řazení</h2>\n    <ul>\n        <li><strong>Automatický filtr:</strong> Na kartě <code>Data</code> klikněte na tlačítko <strong>Filtr</strong>. Umožňuje filtrovat text, čísla nebo data podle zadaných kritérií.</li>\n        <li><strong>Funkce FILTER:</strong> Moderní funkce <code>=FILTER(oblast; podmínka)</code> pro dynamické filtrování do nového rozsahu.</li>\n        <li><strong>Průřez (Slicer):</strong> Vizuální filtr pro tabulky a kontingenční tabulky, který umožňuje rychlý výběr dat.</li>\n        <li><strong>Rozšířený filtr:</strong> Umožňuje složitější filtrování na základě definované oblasti kritérií.</li>\n    </ul>\n\n    <h2>4. Formátování dat</h2>\n    \n    <ul>\n        <li><strong>Formátovat jako tabulku:</strong> Na kartě <code>Domů</code> vyberte styl tabulky. Tím se data usnadní filtrovat, řadit a analyzovat.</li>\n        <li><strong>Podmíněné formátování:</strong> Automaticky změní vzhled buňky (barvu, písmo) na základě její hodnoty (např. zvýraznění hodnot > 100).</li>\n        <li><strong>Základní formátování:</strong> Úprava datumu, měny, procent či počtu desetinných míst přes kartu <code>Domů</code> (skupina Číslo).</li>\n    </ul>\n\n    <h2>5. Ověření dat (Data Validation)</h2>\n    <p>Tento nástroj omezuje, co může uživatel do buňky zadat (např. povolit jen seznam, datum, číslo v určitém rozsahu).</p>\n    <ul>\n        <li><strong>Nastavení:</strong> Karta <code>Data > Ověření dat</code>.</li>\n        <li><strong>Funkce:</strong> Lze definovat zprávu při zadání a chybové hlášení při vložení neplatných dat.</li>\n    </ul>\n\n    <div class=\"tip-box\">\n        <strong>Pro tip:</strong> Pro efektivní práci s daty se doporučuje data převést na <strong>Formát tabulky</strong> pomocí klávesové zkratky <span class=\"shortcut\">Ctrl + T</span>. Tím se automaticky aktivují filtry a usnadní se následné formátování.\n    </div>\n</div>"
+        },
+        {
+          "id": "q3",
+          "title": "Základní pojmy z oblasti databází",
+          "content": "<div class=\"container\">\n    <h1>Základy databázových systémů</h1>\n    <p class=\"intro-text\">\n        Databáze je uspořádaná množina informací uložená na médiu, spravovaná <strong>systémem řízení báze dat (SŘBD/DBMS)</strong>. \n        Základem relačních databází jsou tabulky propojené vazbami, které umožňují efektivní manipulaci s daty.\n    </p>\n\n    <h2>1. Základní pojmy a struktura</h2>\n    <div class=\"concept-grid\">\n        <div class=\"card\">\n            <h3>Struktura</h3>\n            <ul>\n                <li><strong>Databáze:</strong> Organizovaná struktura dat popisující určitou oblast.</li>\n                <li><strong>Tabulka:</strong> Základní stavební prvek (sloupce a řádky).</li>\n                <li><strong>Pole (Atribut):</strong> Definovaná vlastnost (např. jméno).</li>\n                <li><strong>Záznam (Entita):</strong> Konkrétní výskyt dat (jeden řádek).</li>\n            </ul>\n        </div>\n        <div class=\"card\">\n            <h3>Správa a typy</h3>\n            <ul>\n                <li><strong>SŘBD / DBMS:</strong> Software pro správu (např. <code>MySQL</code>, <code>PostgreSQL</code>, <code>Oracle</code>).</li>\n                <li><strong>Datový typ:</strong> Určuje druh dat (<code>text</code>, <code>číslo</code>, <code>datum</code>, <code>boolean</code>).</li>\n            </ul>\n        </div>\n    </div>\n\n    <h2>2. Klíče a vazby</h2>\n    \n    <p>Vztahy mezi daty jsou definovány pomocí klíčů, které zajišťují integritu dat:</p>\n    <ul>\n        <li><strong>Primární klíč (Primary Key):</strong> Jedinečný identifikátor záznamu. Nesmí být prázdný (<code>NULL</code>).</li>\n        <li><strong>Cizí klíč (Foreign Key):</strong> Sloupec propojující tabulku s primárním klíčem jiné tabulky.</li>\n    </ul>\n\n    <h3>Typy vazeb (Relace):</h3>\n    <ul>\n        <li><strong>1:1:</strong> Jeden záznam v A odpovídá právě jednomu v B.</li>\n        <li><strong>1:N:</strong> Jeden záznam v A může mít více odpovídajících záznamů v B (nejčastější).</li>\n        <li><strong>M:N:</strong> Více záznamů v A odpovídá více záznamům v B (řeší se přes spojovací tabulku).</li>\n    </ul>\n\n    <h2>3. Práce s databází (SQL a objekty)</h2>\n    <p><strong>SQL (Structured Query Language)</strong> je standardizovaný jazyk pro komunikaci s relačními databázemi.</p>\n    \n    <table class=\"sql-table\">\n        <thead>\n            <tr>\n                <th>Kategorie</th>\n                <th>Příkazy</th>\n                <th>Význam</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr>\n                <td><strong>DDL</strong> (Definition)</td>\n                <td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code></td>\n                <td>Definice a změny struktury (tabulky, indexy).</td>\n            </tr>\n            <tr>\n                <td><strong>DML</strong> (Manipulation)</td>\n                <td><code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td>\n                <td>Práce s konkrétními daty (výběr, vložení, úprava).</td>\n            </tr>\n        </tbody>\n    </table>\n\n    <p>Kromě dotazů (Query) využíváme také <strong>Formuláře</strong> pro zadávání dat a <strong>Sestavy (Reports)</strong> pro formátované výstupy určené k tisku.</p>\n\n    <h2>4. Typy databází a bezpečnost</h2>\n    <ul>\n        <li><strong>Relační databáze:</strong> Klasické uspořádání do tabulek s pevnou strukturou (SQL).</li>\n        <li><strong>NoSQL databáze:</strong> Pro nestrukturovaná data (dokumentové, klíč-hodnota).</li>\n    </ul>\n\n    <div class=\"security-box\">\n        <h3>🛡️ Bezpečnost dat</h3>\n        <p>Ochrana dat zahrnuje soulad s <strong>GDPR</strong> a technická opatření:</p>\n        <ul>\n            <li>Hesla se nikdy neukládají v čistém textu, ale <strong>hashují</strong> se (např. pomocí <code>bcrypt</code>).</li>\n            <li>Obrana proti <strong>SQL Injection</strong> pomocí tzv. <em>prepared statements</em> (parametrizovaných dotazů).</li>\n        </ul>\n    </div>\n</div>"
+        },
+        {
+          "id": "q4",
+          "title": "Syntaxe příkazů v databázi a jejich rozdělení",
+          "content": "<div class=\"container\">\n    <h1>Syntaxe databázových příkazů (SQL)</h1>\n    \n    <p>SQL (Structured Query Language) je standardizovaný jazyk, který se v detailech liší podle systému (MySQL, PostgreSQL, MS SQL), ale základní logika zůstává stejná. Příkazy se obvykle ukončují <strong>středníkem (;)</strong>.</p>\n\n    \n\n    <div class=\"category-grid\">\n        <div class=\"category-card\" style=\"border-top-color: #e67e22;\">\n            <h3>1. DDL (Data Definition Language)</h3>\n            <p>Definice a tvorba struktury (tabulky, indexy).</p>\n            <ul>\n                <li><code>CREATE</code>: Vytvoří databázi, tabulku nebo index.</li>\n                <li><code>ALTER</code>: Upraví existující strukturu (přidání sloupce).</li>\n                <li><code>DROP</code>: Odstraní objekt z databáze.</li>\n                <li><code>TRUNCATE</code>: Smaže data, ale ponechá strukturu.</li>\n            </ul>\n        </div>\n\n        <div class=\"category-card\" style=\"border-top-color: #2ecc71;\">\n            <h3>2. DML (Data Manipulation Language)</h3>\n            <p>Manipulace s konkrétními daty v tabulkách.</p>\n            <ul>\n                <li><code>SELECT</code>: Načte/vybere data z databáze.</li>\n                <li><code>INSERT</code>: Vloží nové záznamy do tabulky.</li>\n                <li><code>UPDATE</code>: Aktualizuje existující data.</li>\n                <li><code>DELETE</code>: Smaže konkrétní data z tabulky.</li>\n            </ul>\n        </div>\n\n        <div class=\"category-card\" style=\"border-top-color: #9b59b6;\">\n            <h3>3. DCL (Data Control Language)</h3>\n            <p>Správa uživatelských oprávnění a přístupů.</p>\n            <ul>\n                <li><code>GRANT</code>: Udělí oprávnění (např. čtení, zápis).</li>\n                <li><code>REVOKE</code>: Odebere udělená oprávnění.</li>\n            </ul>\n        </div>\n\n        <div class=\"category-card\" style=\"border-top-color: #e74c3c;\">\n            <h3>4. TCL (Transaction Control Language)</h3>\n            <p>Řízení transakcí a integrita dat.</p>\n            <ul>\n                <li><code>COMMIT</code>: Trvale uloží provedené změny.</li>\n                <li><code>ROLLBACK</code>: Vrátí změny zpět (např. při chybě).</li>\n            </ul>\n        </div>\n    </div>\n\n    \n\n    <div class=\"syntax-rule\">\n        <h3>Základní syntaktická pravidla</h3>\n        <ul>\n            <li><strong>Ukončení:</strong> Každý příkaz končí středníkem <code>;</code>.</li>\n            <li><strong>Velikost písmen:</strong> SQL není <em>case-sensitive</em>, ale klíčová slova píšeme <code>VELKÝMI PÍSMENY</code> pro lepší čitelnost.</li>\n            <li><strong>Komentáře:</strong> Jednořádkové uvozujeme <code>--</code>, víceřádkové pomocí <code>/* ... */</code>.</li>\n            <li><strong>Struktura dotazu SELECT:</strong> Skládá se z klauzulí v tomto pořadí:\n                <div class=\"sql-example\">\n                    SELECT → FROM → WHERE → GROUP BY → HAVING → ORDER BY\n                </div>\n            </li>\n        </ul>\n    </div>\n</div>"
+        },
+        {
+          "id": "q5",
+          "title": "Zpracování textu ve Wordu",
+          "content": "<div class=\"document-page\">\n    <h1>Efektivní zpracování textu v MS Word</h1>\n    \n    <p>Zpracování textu v MS Word zahrnuje efektivní psaní, úpravy a formátování pomocí nástrojů na kartě <strong>Domů</strong> (písmo, odstavce, styly). Klíčem k profesionálním dokumentům je využití stylů pro nadpisy, automatický obsah a znalost klávesových zkratek.</p>\n\n    \n\n    <h2>1. Základní techniky zpracování textu</h2>\n    \n    <h3>Formátování textu a odstavců</h3>\n    <ul>\n        <li><strong>Písmo:</strong> Změna typu, velikosti, barvy a řezu (tučné, kurzíva, podtržení) se provádí v sekci Písmo na kartě <code>Domů</code>.</li>\n        <li><strong>Zarovnání:</strong> Možnosti zarovnání vlevo, na střed, doprava nebo do bloku (podle obou okrajů).</li>\n        <li><strong>Řádkování:</strong> Úprava mezer mezi řádky pro lepší čitelnost dokumentu.</li>\n    </ul>\n\n    <h3>Styly a struktura</h3>\n    <p>Používejte předdefinované styly <strong>Nadpis 1</strong>, <strong>Nadpis 2</strong> atd. To zajistí konzistentní vzhled a je to nezbytný předpoklad pro vytvoření automatického obsahu.</p>\n    \n    \n\n    <h3>Manipulace s textem a objekty</h3>\n    <ul>\n        <li><strong>Klávesové zkratky:</strong> \n            <span class=\"shortcut\">Ctrl + C</span> (kopírovat), \n            <span class=\"shortcut\">Ctrl + X</span> (vyjmout) a \n            <span class=\"shortcut\">Ctrl + V</span> (vložit).\n        </li>\n        <li><strong>Obrázky:</strong> Po vložení obrázku lze nastavit <strong>Zalamovat text</strong> (obtékání), aby se obrázek správně integroval do textu.</li>\n    </ul>\n\n    \n\n    <h2>2. Pokročilé funkce a tipy</h2>\n    \n    <div class=\"feature-box\">\n        <h3>Automatický obsah</h3>\n        <p>Pokud máte v dokumentu použity styly nadpisů, stačí přejít na kartu <code>Reference > Obsah</code>. Word automaticky vygeneruje seznam kapitol s čísly stránek.</p>\n    </div>\n\n    \n\n    <h3>Hlasové zadávání a diktování</h3>\n    <p>V moderních verzích (Microsoft 365) můžete využít funkci <strong>Diktování</strong> přes zkratku <span class=\"shortcut\">Alt + `</span> (nebo <span class=\"shortcut\">⌥ + F1</span> na Macu). Word bude automaticky přepisovat vaši řeč do textu.</p>\n\n    <h3>Hromadná úprava vzhledu</h3>\n    <p>Chcete-li změnit vzhled všech nadpisů najednou, klikněte pravým tlačítkem na konkrétní styl v galerii na kartě Domů a zvolte <strong>Změnit</strong>. Změna se okamžitě projeví v celém dokumentu.</p>\n\n    <p class=\"tip\">Tip pro produktivitu: Naučte se používat styly hned od začátku psaní, ušetříte si desítky minut při finálním formátování dokumentu.</p>\n</div>"
+        },
+        {
+          "id": "q6",
+          "title": "Prezentační software PowerPoint – nástroje a funkce",
+          "content": "<div class=\"presentation-container\">\n    <h1>Microsoft PowerPoint</h1>\n    \n    <p>PowerPoint je přední software pro tvorbu vizuálně poutavých prezentací. Umožňuje vkládat texty, obrázky, grafy, videa i 3D modely, čímž vytváří komplexní multimediální zážitek pro publikum.</p>\n\n    \n\n    <h2>Klíčové nástroje a funkce</h2>\n\n    <div class=\"feature-grid\">\n        <div class=\"feature-card\">\n            <h3>Tvorba obsahu</h3>\n            <p>Vkládání textových polí, tabulek, grafů a 3D modelů pro maximální vizuální obohacení vaší zprávy.</p>\n        </div>\n        <div class=\"feature-card\">\n            <h3>Návrhář (Design Ideas)</h3>\n            <p>Umělá inteligence, která automaticky navrhuje profesionální rozvržení snímků na základě vašeho obsahu.</p>\n        </div>\n        <div class=\"feature-card\">\n            <h3>Spolupráce</h3>\n            <p>Sdílení prezentace přes OneDrive/SharePoint a společná editace s kolegy v reálném čase.</p>\n        </div>\n    </div>\n\n    \n\n    <div class=\"morph-box\">\n        <h3>Přechod Morph (Morfing)</h3>\n        <p>Jedna z nejvýkonnějších funkcí PowerPointu. Morph umožňuje plynulou transformaci a pohyb objektů mezi dvěma snímky, což vytváří efekt profesionální animace bez složitého nastavování.</p>\n    </div>\n\n    \n\n    <h2>Pokročilé prezentační režimy</h2>\n    \n    <div class=\"feature-card\" style=\"margin-bottom: 20px;\">\n        <h3>Zobrazení prezentujícího</h3>\n        <p>Speciální režim pro přednášejícího. Zatímco publikum vidí pouze čistý snímek, vy na svém monitoru vidíte poznámky, aktuální čas a náhled následujícího snímku.</p>\n    </div>\n\n    \n\n    <div class=\"presenter-tip\">\n        PowerPoint Live v Microsoft Teams umožňuje inkluzivní prezentování s funkcemi jako živé titulky nebo online hlasování přímo v průběhu schůzky.\n    </div>\n\n    <h2>Moderní funkce</h2>\n    <ul>\n        <li><strong>Interaktivita:</strong> Vkládání hypertextových odkazů pro nelineární navigaci v prezentaci.</li>\n        <li><strong>Export:</strong> Snadné uložení do formátů PDF, videa (MP4) nebo klasického .pptx.</li>\n        <li><strong>Nahrávání:</strong> Možnost nahrát celou prezentaci včetně hlasového komentáře a obrazu z webkamery.</li>\n    </ul>\n\n    <div class=\"footer\">\n        Standard pro vzdělávání i moderní podnikání.\n    </div>\n</div>"
+        },
+        {
+          "id": "q7",
+          "title": "Typy datových souborů a programů, převody datových formátů",
+          "content": "<div class=\"file-manager-container\">\n    <h1>Datové soubory a programy</h1>\n    \n    <div class=\"intro-box\">\n        Datové soubory obsahují informace (ingredience), zatímco programy obsahují instrukce (recepty), které počítač provádí. Formát souboru pak určuje, jak je tento \"pokrm\" v digitálním světě strukturován.\n    </div>\n\n    <h2>1. Typy datových souborů a přípony</h2>\n    <p>Soubory se dělí do kategorií podle svého obsahu. Správná přípona informuje systém o struktuře dat uvnitř souboru.</p>\n\n    <table>\n        <thead>\n            <tr>\n                <th>Kategorie</th>\n                <th>Příklady přípon</th>\n                <th>Popis</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr>\n                <td class=\"category-tag\">Textové</td>\n                <td><span class=\"extension\">.txt</span> <span class=\"extension\">.docx</span> <span class=\"extension\">.pdf</span></td>\n                <td>Dokumenty čitelné člověkem nebo textovými procesory.</td>\n            </tr>\n            <tr>\n                <td class=\"category-tag\">Tabulkové</td>\n                <td><span class=\"extension\">.xlsx</span> <span class=\"extension\">.csv</span> <span class=\"extension\">.ods</span></td>\n                <td>Strukturovaná data v řádcích a sloupcích.</td>\n            </tr>\n            <tr>\n                <td class=\"category-tag\">Obrázkové</td>\n                <td><span class=\"extension\">.jpg</span> <span class=\"extension\">.png</span> <span class=\"extension\">.svg</span></td>\n                <td>Rastrová (pixely) nebo vektorová (křivky) grafika.</td>\n            </tr>\n            <tr>\n                <td class=\"category-tag\">Audio/Video</td>\n                <td><span class=\"extension\">.mp4</span> <span class=\"extension\">.mp3</span> <span class=\"extension\">.mkv</span></td>\n                <td>Multimediální obsah vyžadující kodeky.</td>\n            </tr>\n            <tr>\n                <td class=\"category-tag\">Komprimované</td>\n                <td><span class=\"extension\">.zip</span> <span class=\"extension\">.rar</span> <span class=\"extension\">.7z</span></td>\n                <td>Archivy obsahující více souborů v menším objemu.</td>\n            </tr>\n        </tbody>\n    </table>\n\n    \n\n[Image of raster vs vector graphics]\n\n\n    <h2>2. Programové soubory</h2>\n    <p>Obsahují instrukce, které procesor počítače interpretuje nebo přímo vykonává.</p>\n    <ul>\n        <li><strong>Spustitelné soubory:</strong> <span class=\"extension\">.exe</span> (Windows), <span class=\"extension\">.app</span> (macOS). Hlavní soubory aplikací.</li>\n        <li><strong>Skripty:</strong> <span class=\"extension\">.py</span> (Python), <span class=\"extension\">.ps1</span> (PowerShell), <span class=\"extension\">.sh</span> (Bash). Textové soubory s kódem, které spouští interpret.</li>\n    </ul>\n\n    <h2>3. Převody datových formátů (Konverze)</h2>\n    <p>Konverze je proces změny struktury souboru pro zajištění kompatibility mezi různými programy.</p>\n    \n    <div class=\"conversion-flow\">\n        <strong>Příklady častých převodů:</strong><br><br>\n        DOCX <span class=\"arrow\">➔</span> PDF <br>\n        PNG <span class=\"arrow\">➔</span> JPG <br>\n        XLSX <span class=\"arrow\">➔</span> CSV\n    </div>\n\n    <p>K převodu se využívají funkce <strong>\"Uložit jako\"</strong>, <strong>\"Exportovat\"</strong> nebo specializované online a offline konvertory.</p>\n\n    <h2>4. Asociace dat</h2>\n    <p>Asociace je vazba v operačním systému, která propojuje příponu souboru s konkrétní aplikací.</p>\n    \n    \n\n    <div class=\"association-box\">\n        <span>⚙️</span>\n        <div>\n            <strong>Jak to funguje:</strong> Když poklepete na soubor <span class=\"extension\">.jpg</span>, operační systém se podívá do své tabulky asociací a zjistí, že má spustit např. aplikaci \"Prohlížeč fotografií\". Tato nastavení lze v systému kdykoliv změnit.\n        </div>\n    </div>\n</div>"
+        },
+        {
+          "id": "q8",
+          "title": "Webový prohlížeč (bezpečná práce na internetu)",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q9",
+          "title": "Mezinárodní právo v ICT",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q10",
+          "title": "Právo v ICT se zaměřením na evropskou legislativu",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q11",
+          "title": "Softwarové právo",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q12",
+          "title": "Internetová reklama a problematika spamu",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q13",
+          "title": "Domény a doménové spory",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q14",
+          "title": "Kyberkriminalita a kybernetická bezpečnost",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q15",
+          "title": "Bezpečnostní analýza (analýza rizik) informačního systému",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q16",
+          "title": "Bezpečnost v informačních systémech",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q17",
+          "title": "Elektronický podpis, certifikáty, časová razítka",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q18",
+          "title": "Bezpečnost v síti Internet – bezpečnostní protokoly",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q19",
+          "title": "Kryptografia – princip, šifrovací algoritmy a jejich dělení",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q20",
+          "title": "Internet věcí",
+          "content": "<p>Obsah bude přidán později.</p>"
+        }
       ]
     },
     "informacni-a-komunikacni-technologie": {
       "title": "Informační a komunikační technologie",
       "questions": [
-        {"id": "q1", "title": "Klasifikace sítí, topologie sítí", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q2", "title": "Sítě (ISDN, xDSL) a předchozí principy sítí", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q3", "title": "Zabezpečení počítačové sítě a diagnostika závad počítačové sítě", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q4", "title": "Pasivní síťové prvky a jejich využití", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q5", "title": "Síťový model ISO/OSI", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q6", "title": "Síťová architektura TCP/IP a jednotlivé protokoly", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q7", "title": "Aktivní síťové prvky a jejich využití", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q8", "title": "Návrh počítačové sítě LAN a její nastavení", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q9", "title": "Technologie sítí WLAN a WPAN", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q10", "title": "Mobilní sítě", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q11", "title": "Operační systém – základní definice, funkce, druhy operačních systémů", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q12", "title": "Principy přístupových metod, směrování", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q13", "title": "Konfigurace operačního systému a jeho ochrana před možnými hrozbami", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q14", "title": "Ethernet a jeho vývoj", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q15", "title": "IP adresace", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q16", "title": "Definice pojmů z oblasti webu (WWW, HTML, XHTML, …), domény", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q17", "title": "Vysvětlení základní syntaxe HTML, JavaScriptu, PHP, CSS", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q18", "title": "Statické versus dynamické webové stránky, layout a tagy", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q19", "title": "Parametry ovlivňující čitelnost textu, formátování textu pomocí CSS", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q20", "title": "Číselné soustavy v IT, architektury počítačů", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q21", "title": "Paměťová média a zálohování dat, logické obvody", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q22", "title": "Vnitřní zařízení počítače a jejich parametry", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q23", "title": "Vstupní a výstupní zařízení počítače a jejich parametry", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q24", "title": "Algoritmus a způsoby jeho názorného zápisu", "content": "<p>Obsah bude přidán později.</p>"},
-        {"id": "q25", "title": "Základní pojmy z oblasti objektového programování", "content": "<p>Obsah bude přidán později.</p>"}
+        {
+          "id": "q1",
+          "title": "Klasifikace sítí, topologie sítí",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q2",
+          "title": "Sítě (ISDN, xDSL) a předchozí principy sítí",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q3",
+          "title": "Zabezpečení počítačové sítě a diagnostika závad počítačové sítě",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q4",
+          "title": "Pasivní síťové prvky a jejich využití",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q5",
+          "title": "Síťový model ISO/OSI",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q6",
+          "title": "Síťová architektura TCP/IP a jednotlivé protokoly",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q7",
+          "title": "Aktivní síťové prvky a jejich využití",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q8",
+          "title": "Návrh počítačové sítě LAN a její nastavení",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q9",
+          "title": "Technologie sítí WLAN a WPAN",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q10",
+          "title": "Mobilní sítě",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q11",
+          "title": "Operační systém – základní definice, funkce, druhy operačních systémů",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q12",
+          "title": "Principy přístupových metod, směrování",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q13",
+          "title": "Konfigurace operačního systému a jeho ochrana před možnými hrozbami",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q14",
+          "title": "Ethernet a jeho vývoj",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q15",
+          "title": "IP adresace",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q16",
+          "title": "Definice pojmů z oblasti webu (WWW, HTML, XHTML, …), domény",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q17",
+          "title": "Vysvětlení základní syntaxe HTML, JavaScriptu, PHP, CSS",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q18",
+          "title": "Statické versus dynamické webové stránky, layout a tagy",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q19",
+          "title": "Parametry ovlivňující čitelnost textu, formátování textu pomocí CSS",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q20",
+          "title": "Číselné soustavy v IT, architektury počítačů",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q21",
+          "title": "Paměťová média a zálohování dat, logické obvody",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q22",
+          "title": "Vnitřní zařízení počítače a jejich parametry",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q23",
+          "title": "Vstupní a výstupní zařízení počítače a jejich parametry",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q24",
+          "title": "Algoritmus a způsoby jeho názorného zápisu",
+          "content": "<p>Obsah bude přidán později.</p>"
+        },
+        {
+          "id": "q25",
+          "title": "Základní pojmy z oblasti objektového programování",
+          "content": "<p>Obsah bude přidán později.</p>"
+        }
       ]
     }
   }
