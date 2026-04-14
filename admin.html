@@ -303,7 +303,7 @@
 
         // Pokus 2: Načíst z questions.json
         console.log('   ❌ localStorage je prázdné, načítám z questions.json...');
-        const response = await fetch('questions.json');
+        const response = await fetch('questions.json?v=' + Date.now());
         const data = await response.json();
         allQuestions = data.categories;
         console.log('   ✓ Data načtena z questions.json, kategorie:', Object.keys(allQuestions));

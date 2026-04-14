@@ -26,7 +26,7 @@ class QuestionManager {
       console.log('❌ localStorage je prázdné, pokousím se načít z questions.json...');
 
       // Pokus 2: Načíst z JSON souboru
-      const response = await fetch(this.dataFile);
+      const response = await fetch(this.dataFile + '?v=' + Date.now());
       if (response.ok) {
         const data = await response.json();
         this.allQuestions = data.categories;
